@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://fjjuqdwbqet6"]
+
+[ext_resource type="Script" uid="uid://bg2q7541ag3sq" path="res://features/exploration_context/fish_guy.gd" id="1_o2xso"]
+[ext_resource type="PackedScene" uid="uid://ogmm0rejf2ys" path="res://features/exploration_context/fish_guy.glb" id="1_vmn1m"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vmn1m"]
+size = Vector3(2.88208, 0.2919922, 1)
+
+[node name="FishGuy" type="Node3D" unique_id=2041098056]
+script = ExtResource("1_o2xso")
+
+[node name="fish_guy" parent="." unique_id=104634135 instance=ExtResource("1_vmn1m")]
+unique_name_in_owner = true
+
+[node name="Skeleton3D" parent="fish_guy/Rig" parent_id_path=PackedInt32Array(104634135, 92824893) index="0" unique_id=1369944168]
+bones/0/position = Vector3(0, 1.0099, -0.05519998)
+bones/0/rotation = Quaternion(0.12581968, 0, 0, 0.9920532)
+bones/1/rotation = Quaternion(-0.06447644, 0, 0, 0.99791926)
+bones/2/rotation = Quaternion(-0.077464215, 0, 0, 0.99699515)
+bones/3/rotation = Quaternion(0.0021381322, 0, 0, 0.99999774)
+bones/4/rotation = Quaternion(0.2017378, 0, 0, 0.97943956)
+bones/5/rotation = Quaternion(-0.094857454, 0, 0, 0.99549085)
+bones/8/rotation = Quaternion(-0.6051548, -0.3458624, -0.3561345, 0.6223625)
+bones/9/rotation = Quaternion(-0.2744354, 0.64509374, -0.57331556, 0.42408565)
+bones/10/rotation = Quaternion(-0.0036657224, -0.0148485545, -0.10934069, 0.9938867)
+bones/11/rotation = Quaternion(0.036264148, -0.0022263904, 0.028656902, 0.9989288)
+bones/14/rotation = Quaternion(0.2828463, -0.0058953934, -0.18055744, 0.9419991)
+bones/16/rotation = Quaternion(-0.6051548, 0.3458624, 0.3561345, 0.6223625)
+bones/17/rotation = Quaternion(-0.27403843, -0.6458257, 0.57267445, 0.42409462)
+bones/18/rotation = Quaternion(-0.0036657234, 0.0148485545, 0.10934069, 0.9938867)
+bones/19/rotation = Quaternion(0.036264133, 0.0022263897, -0.0286569, 0.9989288)
+bones/20/rotation = Quaternion(0.0013347075, -0.021538846, 0.23388073, 0.97202575)
+bones/22/rotation = Quaternion(0.28284636, 0.005895397, 0.18055744, 0.9419991)
+bones/32/rotation = Quaternion(0.9849095, 0.050030217, -0.00830018, 0.1654734)
+bones/33/rotation = Quaternion(0.08665607, 0.008649945, 0.0052799494, 0.99618673)
+bones/34/rotation = Quaternion(-0.52468497, -0.024209728, 0.038481306, 0.8500817)
+bones/39/rotation = Quaternion(0.9849095, -0.05003021, 0.008300176, 0.16547352)
+bones/40/rotation = Quaternion(0.08665607, -0.008649945, -0.0052799494, 0.99618673)
+bones/41/rotation = Quaternion(-0.524685, 0.024209732, -0.038481303, 0.8500816)
+bones/42/rotation = Quaternion(-1.1377852e-07, 0.96124893, -0.27568206, -1.3216811e-06)
+
+[node name="AnimationPlayer" parent="fish_guy" index="1" unique_id=230096381]
+autoplay = &"Rig|Rig|Idle"
+
+[node name="turn_trigger" type="Area3D" parent="." unique_id=1999610026]
+unique_name_in_owner = true
+collision_layer = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="turn_trigger" unique_id=2070492904]
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, -0.11375761, 0.56529003, -1.8236077)
+shape = SubResource("BoxShape3D_vmn1m")
+
+[editable path="fish_guy"]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dwpf1y5c8d7ma"]
+
+[ext_resource type="Script" uid="uid://cynncjmibtoap" path="res://features/game_context/game_context.gd" id="1_qpoeg"]
+[ext_resource type="PackedScene" uid="uid://3jrsmq2hjxee" path="res://features/cutscene_context/cutscene_context.tscn" id="2_vucdh"]
+[ext_resource type="PackedScene" uid="uid://rffkbwtkw8tf" path="res://features/exploration_context/exploration_context.tscn" id="3_0vu4v"]
+[ext_resource type="PackedScene" uid="uid://dxy1jc3il5dre" path="res://features/pause_context/pause_context.tscn" id="4_0vu4v"]
+[ext_resource type="PackedScene" uid="uid://c0xgc8nw7kw3s" path="res://features/dialogue_context/dialogue_context.tscn" id="5_a42j1"]
+
+[node name="GameContext" type="Node3D" unique_id=1856185934]
+script = ExtResource("1_qpoeg")
+cutscene_scene = ExtResource("2_vucdh")
+exploration_scene = ExtResource("3_0vu4v")
+pause_scene = ExtResource("4_0vu4v")
+dialogue_scene = ExtResource("5_a42j1")

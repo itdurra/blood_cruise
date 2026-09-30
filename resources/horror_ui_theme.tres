@@ -1,0 +1,22 @@
+[gd_resource type="Theme" format=3 uid="uid://c1rtod0jeipel"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eug2t"]
+bg_color = Color(0.1764706, 0.18039216, 0.16862746, 1)
+
+[resource]
+MarginContainer/constants/margin_bottom = 12
+MarginContainer/constants/margin_left = 12
+MarginContainer/constants/margin_right = 12
+MarginContainer/constants/margin_top = 12
+dialogue_label/base_type = &"Label"
+dialogue_label/colors/font_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+dialogue_label/font_sizes/font_size = 42
+dialogue_margin/base_type = &"MarginContainer"
+dialogue_margin/constants/margin_bottom = 96
+dialogue_margin/constants/margin_left = 42
+dialogue_margin/constants/margin_right = 0
+dialogue_panel/base_type = &"PanelContainer"
+dialogue_panel/styles/panel = SubResource("StyleBoxFlat_eug2t")
+dialogue_text/base_type = &"Label"
+dialogue_text/colors/font_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+dialogue_text/font_sizes/font_size = 32

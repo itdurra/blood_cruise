@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://dxy1jc3il5dre"]
+
+[ext_resource type="Script" uid="uid://dnsoikeplhhy4" path="res://features/pause_context/pause_context.gd" id="1_h24qy"]
+
+[node name="PauseContext" type="Control" unique_id=1550770177]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_h24qy")

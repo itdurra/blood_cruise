@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3 uid="uid://h6nq6x64cpq2"]
+
+[ext_resource type="Script" uid="uid://6fyvtqw5a2c6" path="res://features/dialogue_context/dialogue_resource.gd" id="1_wqs5b"]
+[ext_resource type="AudioStream" uid="uid://jah5v3hecpnt" path="res://features/dialogue_context/dialogues/creature_die_01.ogg" id="2_i6ppi"]
+[ext_resource type="AudioStream" uid="uid://dvwf6mrjvf75d" path="res://features/dialogue_context/dialogues/chain_01.ogg" id="3_o24qj"]
+
+[resource]
+script = ExtResource("1_wqs5b")
+dialogues = Array[String](["Hey, uh why do you look so scared?", "Oh right my costume!", "It's cosplay night, and I love clowns.", "The blood? Oh I actually fell down the stairs", "Do you know where the nearest hospital is located?"])
+voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_i6ppi"), ExtResource("3_o24qj"), ExtResource("2_i6ppi"), ExtResource("3_o24qj"), ExtResource("2_i6ppi")])
+metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

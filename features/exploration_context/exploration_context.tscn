@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://rffkbwtkw8tf"]
+
+[ext_resource type="Script" uid="uid://ckga5i4xlb365" path="res://features/exploration_context/exploration_context.gd" id="1_gs3yc"]
+[ext_resource type="PackedScene" uid="uid://bjslyo10es6nl" path="res://features/exploration_context/cruise_ship.glb" id="2_hmso0"]
+[ext_resource type="Resource" uid="uid://h6nq6x64cpq2" path="res://features/dialogue_context/dialogues/fish_guy.tres" id="3_6pqgb"]
+[ext_resource type="PackedScene" uid="uid://2aftofaul7u4" path="res://features/exploration_context/player.tscn" id="3_r63nq"]
+[ext_resource type="PackedScene" uid="uid://fjjuqdwbqet6" path="res://features/exploration_context/fish_guy.tscn" id="4_xajeg"]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jox1"]
+
+[node name="ExplorationContext" type="Node3D" unique_id=224082530]
+script = ExtResource("1_gs3yc")
+
+[node name="fish_guy" parent="." unique_id=2041098056 instance=ExtResource("4_xajeg")]
+unique_name_in_owner = true
+transform = Transform3D(-4.8082526e-08, 0, 1.1, 0, 1.1, 0, -1.1, 0, -4.8082526e-08, 4.5360756, 0.10218242, 1.4227263)
+dialogue_res = ExtResource("3_6pqgb")
+
+[node name="cruise_ship" parent="." unique_id=715257386 instance=ExtResource("2_hmso0")]
+
+[node name="player" parent="." unique_id=1141854583 instance=ExtResource("3_r63nq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3894739, 1.8529409, 2.6032138)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=616123042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6992245)
+light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+directional_shadow_mode = 0
+sky_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=694602179]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1520238581]
+shape = SubResource("WorldBoundaryShape3D_7jox1")
+
+[editable path="cruise_ship"]

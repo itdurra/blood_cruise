@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c0xgc8nw7kw3s"]
+
+[ext_resource type="Script" uid="uid://rmi6db0yrs71" path="res://features/dialogue_context/dialogue_context.gd" id="1_3q6iw"]
+[ext_resource type="PackedScene" uid="uid://b4rcmg0h7xad6" path="res://features/dialogue_context/ui_dialogue.tscn" id="2_mn0s8"]
+
+[node name="DialogueContext" type="Control" unique_id=1362817024]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3q6iw")
+
+[node name="ui_dialogue" parent="." unique_id=1162346712 instance=ExtResource("2_mn0s8")]
+unique_name_in_owner = true
+layout_mode = 1
