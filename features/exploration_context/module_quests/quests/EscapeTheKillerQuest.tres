@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestResource" format=3 uid="uid://bucy6tw0m5fo4"]
+
+[ext_resource type="Script" uid="uid://dfyb787cg6trh" path="res://features/exploration_context/module_quests/quest_resource.gd" id="1_sc7e2"]
+
+[resource]
+script = ExtResource("1_sc7e2")
+quest_description = "Escape the killer"
+metadata/_custom_type_script = "uid://dfyb787cg6trh"

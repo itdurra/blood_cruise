@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="DialogueResource" format=3 uid="uid://bhw1ypl1gnd7l"]
+
+[ext_resource type="Script" uid="uid://6fyvtqw5a2c6" path="res://features/exploration_context/module_dialogue/dialogue_resource.gd" id="1_0lf7b"]
+[ext_resource type="AudioStream" uid="uid://jah5v3hecpnt" path="res://features/exploration_context/module_dialogue/audio/creature_die_01.ogg" id="2_xhfa2"]
+[ext_resource type="AudioStream" uid="uid://dvwf6mrjvf75d" path="res://features/exploration_context/module_dialogue/audio/chain_01.ogg" id="3_yuchg"]
+
+[resource]
+script = ExtResource("1_0lf7b")
+character_names = Array[String](["Brad", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon"])
+dialogues = Array[String](["Hello?", "Hey, uh why do you look so scared?", "What's with the getup?", "Oh right my costume!", "It's cosplay night, and I love clowns.", "Is that real blood?", "Oh, I actually fell down the stairs.", "Do you know where the nearest hospital is located?", "I'll send the ship medic to your room.", "Thank you."])
+voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_xhfa2"), ExtResource("3_yuchg"), ExtResource("2_xhfa2"), ExtResource("3_yuchg"), ExtResource("2_xhfa2")])
+anim_names = Array[String](["", "door_opening/open_door_404", "", "", "", "", "", "", "", "door_opening/close_door_404"])
+metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

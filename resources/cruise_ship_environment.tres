@@ -1,0 +1,20 @@
+[gd_resource type="Environment" format=3 uid="uid://botyvsetr4ros"]
+
+[ext_resource type="Texture2D" uid="uid://cunke1j3ts30s" path="res://resources/Panorama_Sky_11-512x512.png" id="1_qkopl"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bxjdf"]
+sky_top_color = Color(0.21176471, 0.21176471, 0.18431373, 1)
+sky_horizon_color = Color(0.3529412, 0.38431373, 0.45882353, 1)
+sky_cover = ExtResource("1_qkopl")
+sky_cover_modulate = Color(0.19793725, 0.19793722, 0.19793722, 1)
+ground_bottom_color = Color(0.22745098, 0.24313726, 0.28235295, 1)
+ground_horizon_color = Color(0.3529412, 0.38431373, 0.45882353, 1)
+ground_curve = 0.0037892903
+sun_angle_max = 0.0
+
+[sub_resource type="Sky" id="Sky_g040p"]
+sky_material = SubResource("ProceduralSkyMaterial_bxjdf")
+
+[resource]
+background_mode = 2
+sky = SubResource("Sky_g040p")

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestResource" format=3 uid="uid://ds2gmwfur3g1u"]
+
+[ext_resource type="Script" uid="uid://dfyb787cg6trh" path="res://features/exploration_context/module_quests/quest_resource.gd" id="1_ms7tj"]
+
+[resource]
+script = ExtResource("1_ms7tj")
+quest_description = "Go to room 401"
+metadata/_custom_type_script = "uid://dfyb787cg6trh"

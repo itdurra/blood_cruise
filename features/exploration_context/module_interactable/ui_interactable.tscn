@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://dqsktjn4cqnnk"]
+
+[node name="UiInteractable" type="Control" unique_id=1635299374]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 2
+mouse_filter = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=2109739558]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -23.5
+offset_bottom = 23.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=1585485289]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="PanelContainer/MarginContainer" unique_id=960863465]
+layout_mode = 2
+text = "Press X to Interact"
+horizontal_alignment = 1

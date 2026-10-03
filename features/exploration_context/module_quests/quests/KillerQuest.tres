@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestResource" format=3 uid="uid://bc131edryeilx"]
+
+[ext_resource type="Script" uid="uid://dfyb787cg6trh" path="res://features/exploration_context/module_quests/quest_resource.gd" id="1_oxthc"]
+
+[resource]
+script = ExtResource("1_oxthc")
+quest_description = "Escape the boat"
+metadata/_custom_type_script = "uid://dfyb787cg6trh"

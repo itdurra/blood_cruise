@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://ral8r487aaiy"]
+
+[ext_resource type="Script" uid="uid://xp3nqtln5mtl" path="res://features/exploration_context/module_quests/ui_quest.gd" id="1_qbdc6"]
+
+[node name="UiQuest" type="Control" unique_id=398989595]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_qbdc6")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=357311366]
+layout_mode = 0
+offset_right = 24.0
+offset_bottom = 24.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=1938224696]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=2034174474]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=1734427451]
+layout_mode = 2
+
+[node name="quest_description" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/HBoxContainer" unique_id=580938093]
+unique_name_in_owner = true
+layout_mode = 2
+offset_transform_enabled = true
+text = "Talk to your employees"

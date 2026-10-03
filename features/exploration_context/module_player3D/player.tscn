@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://2aftofaul7u4"]
+
+[ext_resource type="Script" uid="uid://yxfwpofeio4a" path="res://features/exploration_context/module_player3D/player.gd" id="1_limvx"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jox1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jox1"]
+size = Vector3(1.4490967, 0.09472656, 1)
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1404840489]
+script = ExtResource("1_limvx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2061716092]
+shape = SubResource("CapsuleShape3D_7jox1")
+
+[node name="player_camera" type="Camera3D" parent="." unique_id=1141854583]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7216199, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="player_camera" unique_id=167099239]
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 1.511
+light_specular = 0.025
+omni_range = 4.829
+
+[node name="Area3D" type="Area3D" parent="player_camera" unique_id=108415438]
+collision_layer = 4
+collision_mask = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="player_camera/Area3D" unique_id=1027262716]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84227777, -0.06991291, 0)
+shape = SubResource("BoxShape3D_7jox1")

@@ -2,17 +2,15 @@ class_name GameContext extends Node
 
 enum SubContext {
 	CutsceneContext,
-	ExplorationContext,
-	PauseContext,
-	DialogueContext
+	ExplorationContext
 }
 var current_subcontext: SubContext
 var current_subcontext_node: Node
 
+@onready var ui_pause_menu: UIPauseMenu = %ui_pause_menu
+
 @export var cutscene_scene: PackedScene
 @export var exploration_scene: PackedScene
-@export var pause_scene: PackedScene
-@export var dialogue_scene: PackedScene
 
 func build() -> void:
 	#build any services or other variables that we need in this context
@@ -28,6 +26,7 @@ func setup() -> void:
 	
 	#TODO: cutscene goes first
 	self.mount_exploration_context()
+	hide_pause_menu()
 
 #do the work of mounting the cutscene context
 func mount_cutscene_context() -> void:
@@ -59,15 +58,10 @@ func mount_exploration_context() -> void:
 
 		#may require other teardown steps
 
-	#special setup if coming from Dialogue subcontext
-	if current_subcontext == SubContext.DialogueContext:
-		current_subcontext = SubContext.ExplorationContext
-		current_subcontext_node = self.get_child(0)
-	else:
-		#build new subcontext
-		current_subcontext = SubContext.ExplorationContext
-		current_subcontext_node = exploration_scene.instantiate()
-		add_child(current_subcontext_node)
+	#build new subcontext
+	current_subcontext = SubContext.ExplorationContext
+	current_subcontext_node = exploration_scene.instantiate()
+	add_child(current_subcontext_node)
 
 	var exploration_subcontext: ExplorationContext = current_subcontext_node as ExplorationContext
 	if exploration_subcontext == null:
@@ -78,28 +72,17 @@ func mount_exploration_context() -> void:
 	exploration_subcontext.bind_dependencies()
 	exploration_subcontext.setup()
 
-	#signals
-	exploration_subcontext.fish_guy.connect("dialogue_requested", mount_dialogue_context)
+func mount_pause_menu() -> void:
+	ui_pause_menu.build()
+	ui_pause_menu.bind_dependencies()
+	ui_pause_menu.setup()
+	show_pause_menu()
 
-#do the work of mounting the pause context
-func mount_pause_context() -> void:
-	pass
+func show_pause_menu() -> void:
+	ui_pause_menu.show()
+	get_tree().paused = true
 
-#do the work of mounting the pause context
-func mount_dialogue_context(dialogue_res_local: DialogueResource) -> void:
-	#skip teardown because we preserve exploration context
-
-
-	#build new subcontext
-	current_subcontext = SubContext.DialogueContext
-	current_subcontext_node = dialogue_scene.instantiate()
-	add_child(current_subcontext_node)
-
-	var dialogue_subcontext: DialogueContext = current_subcontext_node as DialogueContext
-	if dialogue_subcontext == null:
-		printerr("Missing subcontext")
-		return
-
-	dialogue_subcontext.build()
-	dialogue_subcontext.bind_dependencies(dialogue_res_local)
-	dialogue_subcontext.setup()
+func hide_pause_menu() -> void:
+	ui_pause_menu.hide()
+	if get_tree().paused:
+		get_tree().paused = false

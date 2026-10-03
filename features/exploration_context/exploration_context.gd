@@ -1,7 +1,14 @@
 class_name ExplorationContext extends Node
 
-@onready var player: CharacterBody3D = %player
-@onready var fish_guy: Node3D = %fish_guy
+@onready var interactables_parent: Node3D = %quest_and_dialogue_triggers
+@onready var player: PlayerCharacter = %player
+@onready var ui_dialogue: UIDialogue = %ui_dialogue
+@onready var ui_quest: UIQuest = %ui_quest
+@onready var anim_player: AnimationPlayer = %anim_player
+
+#all these nodes should be InteractableDialogueWithQuests class
+#but throws error when trying to cast them from get_child/Array[Node]
+var interactables: Array[Node]
 
 #build any services or other variables that we need in this context
 func build() -> void:
@@ -16,8 +23,80 @@ func bind_dependencies() -> void:
 func setup() -> void:
 	self._mount_player()
 
+	#handle dialogue ui
+	ui_dialogue.connect("dialogue_ended", _hide_dialogue_module_and_enable_player)
+	ui_dialogue.connect("animation_requested", _play_anim)
+	self._hide_dialogue_module()
+
+	#handle character interaction triggers
+	self._mount_interactables()
+	self._setup_first_quest()
+
 #setup player module
 func _mount_player() -> void:
 	player.build()
 	player.bind_dependencies()
 	player.setup()
+
+#do the work of mounting the context
+func _mount_dialogue_module(dialogue_res_local: DialogueResource) -> void:
+	self._show_dialogue_module()
+	ui_dialogue.build()
+	ui_dialogue.bind_dependencies(dialogue_res_local)
+	ui_dialogue.setup()
+
+func _hide_dialogue_module() -> void:
+	ui_dialogue.hide()
+
+func _hide_dialogue_module_and_enable_player() -> void:
+	ui_dialogue.hide()
+	player.enable_player()
+
+func _show_dialogue_module() -> void:
+	ui_dialogue.show()
+	player.disable_player()
+
+func _setup_first_quest() -> void:
+	if interactables.size() == 0:
+		return
+
+	interactables[0].enable_interaction()
+	interactables[0].start_quest()
+	var name_local = interactables[0].get_quest_description()
+	self._update_quest_ui(name_local)
+
+#end last active quest and start next quest
+func _update_quests(description_local: String) -> void:
+	var next_quest_gate: bool = false 
+
+	for interaction in interactables:
+		if next_quest_gate:
+			interaction.enable_interaction()
+			break
+
+		if interaction.is_active_quest():
+			interaction.end_quest()
+			interaction.disable_interaction()
+			next_quest_gate = true
+
+	
+	self._update_quest_ui(description_local)
+
+func _update_quest_ui(description_local: String) -> void:
+	ui_quest.update_quest_ui(description_local)
+
+func _mount_interactables() -> void:
+	interactables = interactables_parent.get_children()
+
+	for interaction in interactables:
+		interaction.connect("dialogue_requested", _mount_dialogue_module)
+		interaction.connect("quest_started", _update_quests)
+		interaction.build()
+		interaction.bind_dependencies()
+		interaction.setup()
+
+	self._setup_first_quest()
+
+func _play_anim(anim_name_local: String) -> void:
+	if anim_player && anim_player.has_animation(anim_name_local):
+		anim_player.play(anim_name_local)

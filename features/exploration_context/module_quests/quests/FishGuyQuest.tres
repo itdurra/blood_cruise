@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="QuestResource" format=3 uid="uid://csne7n5uxxsel"]
+
+[ext_resource type="Script" uid="uid://dfyb787cg6trh" path="res://features/exploration_context/module_quests/quest_resource.gd" id="1_677sd"]
+
+[resource]
+script = ExtResource("1_677sd")
+quest_description = "Return to the break room"
+metadata/_custom_type_script = "uid://dfyb787cg6trh"

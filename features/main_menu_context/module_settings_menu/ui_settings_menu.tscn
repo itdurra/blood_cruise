@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dcf7utaep4s1x"]
+
+[ext_resource type="Script" uid="uid://dechisgdf7s3x" path="res://features/main_menu_context/module_settings_menu/ui_settings_menu.gd" id="1_0md3c"]
+
+[node name="UISettingsMenu" type="PanelContainer" unique_id=520321447]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0md3c")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=344295913]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=499667666]
+layout_mode = 2
+
+[node name="music_volume_slider" type="HSlider" parent="MarginContainer/VBoxContainer" unique_id=1013106994]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=545994114]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"

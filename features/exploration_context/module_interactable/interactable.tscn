@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://b2g13jj0dpidc"]
+
+[ext_resource type="Script" uid="uid://bmmnketsulfmv" path="res://features/exploration_context/module_interactable/interactable.gd" id="1_plbpm"]
+[ext_resource type="PackedScene" uid="uid://dqsktjn4cqnnk" path="res://features/exploration_context/module_interactable/ui_interactable.tscn" id="2_adiv7"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_60646"]
+size = Vector3(0.8918762, 2.2055664, 0.93530273)
+
+[node name="Interactable" type="Node3D" unique_id=1906733455]
+script = ExtResource("1_plbpm")
+
+[node name="area_trigger" type="Area3D" parent="." unique_id=1905662634]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 4
+
+[node name="collision" type="CollisionShape3D" parent="area_trigger" unique_id=1873862083]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, -7.1054274e-15, 0, 1, 0, 7.1054274e-15, 0, 1, -0.32185364, 0.9567871, -0.0008544922)
+shape = SubResource("BoxShape3D_60646")
+disabled = true
+
+[node name="ui_interactable" parent="." unique_id=1635299374 instance=ExtResource("2_adiv7")]
+unique_name_in_owner = true
