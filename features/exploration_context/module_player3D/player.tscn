@@ -1,11 +1,22 @@
 [gd_scene format=3 uid="uid://2aftofaul7u4"]
 
 [ext_resource type="Script" uid="uid://yxfwpofeio4a" path="res://features/exploration_context/module_player3D/player.gd" id="1_limvx"]
+[ext_resource type="Shader" uid="uid://o4pconrmxwtr" path="res://features/exploration_context/module_player3D/vignette.gdshader" id="2_dyobv"]
+[ext_resource type="Shader" uid="uid://lpk8vjkp3x5h" path="res://features/exploration_context/module_player3D/ps1_post_process.gdshader" id="3_tkh7x"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_7jox1"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_7jox1"]
 size = Vector3(1.4490967, 0.09472656, 1)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xcb4p"]
+shader = ExtResource("2_dyobv")
+shader_parameter/alpha = 0.46
+shader_parameter/inner_radius = 0.655
+shader_parameter/outer_radius = 1.445
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5hnri"]
+shader = ExtResource("3_tkh7x")
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1404840489]
 script = ExtResource("1_limvx")
@@ -15,18 +26,41 @@ shape = SubResource("CapsuleShape3D_7jox1")
 
 [node name="player_camera" type="Camera3D" parent="." unique_id=1141854583]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7216199, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55108005, 0)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="player_camera" unique_id=167099239]
+visible = false
 light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
 light_energy = 1.511
 light_specular = 0.025
 omni_range = 4.829
 
 [node name="Area3D" type="Area3D" parent="player_camera" unique_id=108415438]
+visible = false
 collision_layer = 4
 collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="player_camera/Area3D" unique_id=1027262716]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.84227777, -0.06991291, 0)
+visible = false
 shape = SubResource("BoxShape3D_7jox1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1477795609]
+
+[node name="vignette" type="ColorRect" parent="CanvasLayer" unique_id=380011978]
+material = SubResource("ShaderMaterial_xcb4p")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ps1_color" type="ColorRect" parent="CanvasLayer" unique_id=2054166920]
+material = SubResource("ShaderMaterial_5hnri")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2

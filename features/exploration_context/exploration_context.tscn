@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://ckga5i4xlb365" path="res://features/exploration_context/exploration_context.gd" id="1_gs3yc"]
 [ext_resource type="PackedScene" uid="uid://bjslyo10es6nl" path="res://features/exploration_context/blender/cruise_ship.glb" id="2_hmso0"]
 [ext_resource type="Resource" uid="uid://h6nq6x64cpq2" path="res://features/exploration_context/module_dialogue/dialogue_resources/fish_guy.tres" id="3_6pqgb"]
+[ext_resource type="PackedScene" uid="uid://cwmh2hk8yjsgu" path="res://features/exploration_context/NPCs/fish_guy.tscn" id="3_pttga"]
 [ext_resource type="PackedScene" uid="uid://2aftofaul7u4" path="res://features/exploration_context/module_player3D/player.tscn" id="3_r63nq"]
-[ext_resource type="PackedScene" uid="uid://fjjuqdwbqet6" path="res://features/exploration_context/NPCs/fish_guy.tscn" id="4_xajeg"]
 [ext_resource type="PackedScene" uid="uid://b4rcmg0h7xad6" path="res://features/exploration_context/module_dialogue/ui_dialogue.tscn" id="6_ijygs"]
 [ext_resource type="PackedScene" uid="uid://g3hswjufwa84" path="res://features/exploration_context/blender/door.glb" id="6_scb8x"]
 [ext_resource type="Environment" uid="uid://botyvsetr4ros" path="res://resources/cruise_ship_environment.tres" id="8_8vwsg"]
@@ -47,11 +47,66 @@ tracks/0/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("door/door_004:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("door/door_001:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.1415925, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37h0r"]
 _data = {
 &"RESET": SubResource("Animation_20uy2")
 }
+
+[sub_resource type="Animation" id="Animation_pttga"]
+resource_name = "close_door_401"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door/door_004:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, -1.7453293, 0), Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m33fs"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door/door_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.3962634, 0), Vector3(0, 3.1415925, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_l0k3c"]
 
 [sub_resource type="Animation" id="Animation_1k85v"]
 length = 0.8
@@ -68,6 +123,43 @@ tracks/0/keys = {
 "values": [Vector3(0, -1.7453293, 0), Vector3(0, 0, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_3jkh6"]
+
+[sub_resource type="Animation" id="Animation_i87lw"]
+
+[sub_resource type="Animation" id="Animation_2j8wc"]
+
+[sub_resource type="Animation" id="Animation_frual"]
+resource_name = "open_door_401"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door/door_004:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, -1.7453293, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_nsmfo"]
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("door/door_001:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.1415927, 0), Vector3(0, 1.3962634, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ngw8m"]
+
 [sub_resource type="Animation" id="Animation_scb8x"]
 length = 0.8
 tracks/0/type = "value"
@@ -83,10 +175,28 @@ tracks/0/keys = {
 "values": [Vector3(0, 0, 0), Vector3(0, -1.7453293, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_e6wtv"]
+
+[sub_resource type="Animation" id="Animation_1bcul"]
+
+[sub_resource type="Animation" id="Animation_oekra"]
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_20uy2"]
 _data = {
+&"close_door_401": SubResource("Animation_pttga"),
+&"close_door_402": SubResource("Animation_m33fs"),
+&"close_door_403": SubResource("Animation_l0k3c"),
 &"close_door_404": SubResource("Animation_1k85v"),
-&"open_door_404": SubResource("Animation_scb8x")
+&"close_door_405": SubResource("Animation_3jkh6"),
+&"close_door_406": SubResource("Animation_i87lw"),
+&"close_door_407": SubResource("Animation_2j8wc"),
+&"open_door_401": SubResource("Animation_frual"),
+&"open_door_402": SubResource("Animation_nsmfo"),
+&"open_door_403": SubResource("Animation_ngw8m"),
+&"open_door_404": SubResource("Animation_scb8x"),
+&"open_door_405": SubResource("Animation_e6wtv"),
+&"open_door_406": SubResource("Animation_1bcul"),
+&"open_door_407": SubResource("Animation_oekra")
 }
 
 [node name="ExplorationContext" type="Node3D" unique_id=224082530]
@@ -95,23 +205,67 @@ script = ExtResource("1_gs3yc")
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=633985688]
 environment = ExtResource("8_8vwsg")
 
-[node name="fish_guy" parent="." unique_id=2041098056 instance=ExtResource("4_xajeg")]
-unique_name_in_owner = true
-transform = Transform3D(-1.0999124, 0, 0.0138834715, 0, 1.1, 0, -0.0138834715, 0, -1.0999124, 4.5211163, 0.10218242, 4.0657763)
+[node name="lights" type="Node3D" parent="." unique_id=1943914228]
+transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -3.9030995, 1.3157427, 0.049513612)
 
-[node name="player" parent="." unique_id=1141854583 instance=ExtResource("3_r63nq")]
-unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3894739, 1.8529409, 2.6032138)
+[node name="room_401_outer_light" type="SpotLight3D" parent="lights" unique_id=1234560684]
+transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, 3.4475036, 1.1439021, -7.1850834)
+light_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=616123042]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2.6992245)
+[node name="window_light" type="OmniLight3D" parent="lights" unique_id=815575663]
+transform = Transform3D(-0.038858093, 0.485893, -0.8731541, 0.021602467, 0.8740183, 0.48541257, 0.9990112, -7.7096786e-08, -0.04445917, -15.352098, 0.28486133, 4.3507886)
+light_color = Color(0.5019608, 0.5411765, 0.63529414, 1)
+light_energy = 2.715
+omni_range = 3.262
+omni_attenuation = 0.777
+
+[node name="window_light2" type="OmniLight3D" parent="lights" unique_id=163616137]
+transform = Transform3D(-0.038858093, 0.485893, -0.8731541, 0.021602467, 0.8740183, 0.48541257, 0.9990112, -7.7096786e-08, -0.04445917, 7.7439666, 0.28486133, -7.4288445)
+light_color = Color(0.5019608, 0.5411765, 0.63529414, 1)
+light_energy = 2.715
+omni_range = 3.262
+omni_attenuation = 0.777
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights" unique_id=616123042]
+transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -3.9031, -1.3157427, -2.6497102)
 light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
 directional_shadow_mode = 0
 sky_mode = 2
 
+[node name="room_401_inner_light" type="OmniLight3D" parent="lights" unique_id=1537005013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6748648, 0.15011358, -17.110155)
+light_color = Color(0.5529412, 0.6156863, 0.5647059, 1)
+light_energy = 5.107
+
+[node name="break_room_light" type="OmniLight3D" parent="lights" unique_id=46610866]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.675385, 0.19387746, -3.2624898)
+light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+light_energy = 5.107
+omni_range = 2.485
+
+[node name="room_401_character_light" type="OmniLight3D" parent="lights" unique_id=1411697868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4968886, -0.16628337, -9.456445)
+light_color = Color(0.5529412, 0.6156863, 0.5647059, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="fish_guy" parent="." unique_id=416766280 instance=ExtResource("3_pttga")]
+transform = Transform3D(-1.3, 0, -1.13649605e-07, 0, 1.3, 0, 1.13649605e-07, 0, -1.3, -7.494229, 0.02390939, 10.339564)
+
+[node name="player" parent="." unique_id=1141854583 instance=ExtResource("3_r63nq")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.785308, 1.8529409, 1.5010471)
+
 [node name="cruise_ship" parent="." unique_id=390655904 instance=ExtResource("2_hmso0")]
 
 [node name="door" parent="." unique_id=654221504 instance=ExtResource("6_scb8x")]
+
+[node name="door_001" parent="door" index="0" unique_id=1007672796]
+transform = Transform3D(-1.0438598, 0, 6.039833e-08, 0, 1.3294619, 0, -1.5761846e-07, 0, -0.40000004, -3.9030995, 1.3157427, 0.049513612)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=694602179]
 
@@ -141,6 +295,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.393036, 0.16466433, 4.150
 dialogue_res = ExtResource("11_5rl2h")
 quest_res = ExtResource("11_p4kl2")
 
+[node name="fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=18549900 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4006157, 0.36951196, 8.769788)
+dialogue_res = ExtResource("3_6pqgb")
+quest_res = ExtResource("11_1k85v")
+
+[node name="return_from_fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=1116952539 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428465, 0.2528109, 4.049118)
+dialogue_res = ExtResource("15_pttga")
+quest_res = ExtResource("16_m33fs")
+
 [node name="kid_quest" parent="quest_and_dialogue_triggers" unique_id=1952106418 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.518343, 0.14473933, 8.82659)
 dialogue_res = ExtResource("21_i87lw")
@@ -160,16 +324,6 @@ quest_res = ExtResource("12_0mk7v")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.494867, 0.3313247, 4.0557957)
 dialogue_res = ExtResource("19_l0k3c")
 quest_res = ExtResource("20_3jkh6")
-
-[node name="fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=18549900 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5197515, 0.16210854, 3.138338)
-dialogue_res = ExtResource("3_6pqgb")
-quest_res = ExtResource("11_1k85v")
-
-[node name="return_from_fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=1116952539 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428465, 0.2528109, 4.049118)
-dialogue_res = ExtResource("15_pttga")
-quest_res = ExtResource("16_m33fs")
 
 [node name="party_quest" parent="quest_and_dialogue_triggers" unique_id=1308817822 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.714316, 0.0071276426, -5.8444037)

@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://d4book7tyfwd"]
+
+[ext_resource type="Shader" uid="uid://c1ftfet4ellj2" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps1_model_wobble.gdshader" id="1_chb6k"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_chb6k")
+shader_parameter/affine_mapping = false
+shader_parameter/alpha_scissor = 0.5010000237975
+shader_parameter/jitter = 0.850000040375
+shader_parameter/resolution = Vector2i(854, 480)

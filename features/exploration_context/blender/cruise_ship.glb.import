@@ -39,7 +39,30 @@ import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
-_subresources={}
+_subresources={
+"materials": {
+"Paintings": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://features/game_context/ps1_vertext_wobble_material_conversion/test2.tres",
+"use_external/path": "uid://xnq3g10ofa0g"
+},
+"Wood_02": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://features/game_context/ps1_vertext_wobble_material_conversion/test1.tres",
+"use_external/path": "uid://dqjw5vpk453xk"
+},
+"ceiling": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://features/exploration_context/vertex_wobble_materials/ceiling.tres",
+"use_external/path": "uid://b0tv5hb16iqi"
+},
+"wall": {
+"use_external/enabled": false,
+"use_external/fallback_path": "res://features/exploration_context/vertex_wobble_materials/wall.tres",
+"use_external/path": "uid://cjeeqwc7w0hkj"
+}
+}
+}
 gltf/naming_version=2
 gltf/embedded_image_handling=1
 gltf/texture_map_mode=1

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cmd3y6f6q646u"]
+
+[ext_resource type="Script" uid="uid://co2qrk6lph7j6" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps_1_convert_materials.gd" id="1_n5qpv"]
+
+[node name="PS1_convert_materials" type="Node" unique_id=751900272]
+script = ExtResource("1_n5qpv")

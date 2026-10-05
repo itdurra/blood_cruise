@@ -2,14 +2,14 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cqie2tal77cvx"
+uid="uid://iunqwvhlesjw"
 path.s3tc="res://.godot/imported/fish_guy_Ucupaint MeshSkin.png-9abc3dfbb00d2a7d80430aa4859d37e4.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "045f6adf9d993bc11ca84d7be00d7006"
+"md5": "6e0d01701acb4ae4b6c4f84ece6af82e"
 }
 
 [deps]

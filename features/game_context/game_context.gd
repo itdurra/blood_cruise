@@ -7,6 +7,7 @@ enum SubContext {
 var current_subcontext: SubContext
 var current_subcontext_node: Node
 
+@onready var ps1_convert_materials: Node = %ps1_convert_materials
 @onready var ui_pause_menu: UIPauseMenu = %ui_pause_menu
 
 @export var cutscene_scene: PackedScene
@@ -27,6 +28,8 @@ func setup() -> void:
 	#TODO: cutscene goes first
 	self.mount_exploration_context()
 	hide_pause_menu()
+	#loop through all materials and add a ps1 shader
+	ps1_convert_materials.convert_all_materials(self)
 
 #do the work of mounting the cutscene context
 func mount_cutscene_context() -> void:
