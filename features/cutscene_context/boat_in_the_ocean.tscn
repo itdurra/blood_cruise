@@ -1,0 +1,199 @@
+[gd_scene format=3 uid="uid://k2oenkfhwol6"]
+
+[ext_resource type="PackedScene" uid="uid://ccdf7md4nwstj" path="res://features/cutscene_context/blender/boat.glb" id="1_dpnet"]
+[ext_resource type="Environment" uid="uid://botyvsetr4ros" path="res://resources/cruise_ship_environment.tres" id="2_5rbir"]
+[ext_resource type="PackedScene" uid="uid://bkhany7e20mcg" path="res://features/cutscene_context/blender/buoey.glb" id="3_2mqta"]
+[ext_resource type="Script" uid="uid://b61q1pbkiui8a" path="res://features/cutscene_context/blender/buoey.gd" id="3_yba4h"]
+[ext_resource type="Material" uid="uid://cxoirt3ckarih" path="res://resources/particle_effect_material.tres" id="5_ls8jp"]
+
+[sub_resource type="Animation" id="Animation_5rbir"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(40.982483, 1.2686453, 3.754713)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../boat:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-118.447945, 2.2916489, -1299.6107)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_yba4h"]
+resource_name = "boat_forward_camera_with_buoey"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../boat:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-118.448, 12.978, -1299.611), Vector3(100.006, 12.978, 156.753)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2.04, 4.01, 5.99, 7, 8.06, 9.03, 9.99),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(53.904217, 1.2686453, 3.754713), Vector3(53.904, 1.339, 3.755), Vector3(53.904, 1.199, 3.755), Vector3(53.904, 1.169, 3.755), Vector3(53.904, 1.384, 3.755), Vector3(53.904, 1.154, 3.755), Vector3(53.904, 1.444, 3.755), Vector3(53.904, 1.254, 3.755)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../buoey")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(6.866667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"start_fast_mode"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_2mqta"]
+resource_name = "boat_intro"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(40.982483, 1.2686453, 3.754713), Vector3(-19.157047, 1.2686453, 3.754713)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yba4h"]
+_data = {
+&"RESET": SubResource("Animation_5rbir"),
+&"boat_forward_camera_with_buoey": SubResource("Animation_yba4h"),
+&"boat_intro": SubResource("Animation_2mqta")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_7jox1"]
+emission_shape = 1
+emission_sphere_radius = 5.1
+direction = Vector3(-1, 1, 0)
+initial_velocity_min = 35.0
+initial_velocity_max = 42.84
+
+[sub_resource type="QuadMesh" id="QuadMesh_5hnri"]
+size = Vector2(0.1, 0.1)
+
+[node name="BoatInTheOcean" type="Node3D" unique_id=1822884180]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=625378540]
+root_node = NodePath("../Camera3D")
+libraries/ = SubResource("AnimationLibrary_yba4h")
+autoplay = &"boat_forward_camera_with_buoey"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=406139508]
+environment = ExtResource("2_5rbir")
+
+[node name="buoey" parent="." unique_id=7398299 node_paths=PackedStringArray("particles") instance=ExtResource("3_2mqta")]
+transform = Transform3D(-0.017178806, 0, 0.098513395, 0, 0.1, 0, -0.098513395, 0, -0.017178806, 52.82712, 0.55538356, 1.7796326)
+script = ExtResource("3_yba4h")
+particles = NodePath("../sea_spray")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="buoey" unique_id=1149253819]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.0790205, 0)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.85
+omni_range = 31.205
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=785297124]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40.982483, 1.2686453, 3.754713)
+
+[node name="boat" parent="." unique_id=2070237210 instance=ExtResource("1_dpnet")]
+transform = Transform3D(-1.9362257, 0, 9.810761, 0, 10, 0, -9.810761, 0, -1.9362257, -118.447945, 2.2916489, -1299.6107)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="boat" unique_id=673288444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.653805, 0.5755644, 19.349129)
+visible = false
+light_color = Color(0.4392157, 0.33333334, 0.36078432, 1)
+light_energy = 13.495
+spot_range = 17.922
+spot_attenuation = 0.86
+spot_angle = 39.1
+
+[node name="SpotLight3D2" type="SpotLight3D" parent="boat" unique_id=1707282698]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 19.349129)
+visible = false
+light_color = Color(0.4392157, 0.33333334, 0.36078432, 1)
+light_energy = 13.495
+spot_range = 17.922
+spot_attenuation = 0.86
+spot_angle = 39.1
+
+[node name="SpotLight3D3" type="SpotLight3D" parent="boat" unique_id=1564046621]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.849941, 0, 19.349129)
+visible = false
+light_color = Color(0.4392157, 0.33333334, 0.36078432, 1)
+light_energy = 13.495
+spot_range = 17.922
+spot_attenuation = 0.86
+spot_angle = 39.1
+
+[node name="sea_spray" type="GPUParticles3D" parent="." unique_id=487957294]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 59.419353, -4.030839, 0.09095001)
+material_override = ExtResource("5_ls8jp")
+emitting = false
+amount = 20
+lifetime = 0.44
+speed_scale = 1.74
+explosiveness = 0.08
+randomness = 0.19
+process_material = SubResource("ParticleProcessMaterial_7jox1")
+draw_pass_1 = SubResource("QuadMesh_5hnri")

@@ -31,6 +31,9 @@ func setup() -> void:
 	# setup that requires those, e.g. connect signals and use factories etc.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
+func get_player_camera() -> Camera3D:
+	return player_camera
+
 #for when player has no movement options
 func disable_player() -> void:
 	is_disabled = true
@@ -94,4 +97,3 @@ func _update_camera(delta):
 	
 	_rotation_input = 0.0
 	_tilt_input = 0.0
-	

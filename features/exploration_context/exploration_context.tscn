@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://ckga5i4xlb365" path="res://features/exploration_context/exploration_context.gd" id="1_gs3yc"]
 [ext_resource type="PackedScene" uid="uid://bjslyo10es6nl" path="res://features/exploration_context/blender/cruise_ship.glb" id="2_hmso0"]
 [ext_resource type="Resource" uid="uid://h6nq6x64cpq2" path="res://features/exploration_context/module_dialogue/dialogue_resources/fish_guy.tres" id="3_6pqgb"]
-[ext_resource type="PackedScene" uid="uid://cwmh2hk8yjsgu" path="res://features/exploration_context/NPCs/fish_guy.tscn" id="3_pttga"]
 [ext_resource type="PackedScene" uid="uid://2aftofaul7u4" path="res://features/exploration_context/module_player3D/player.tscn" id="3_r63nq"]
+[ext_resource type="PackedScene" uid="uid://bdbgaow4v0ry3" path="res://features/exploration_context/NPCs/wino_mom.tscn" id="4_l0k3c"]
+[ext_resource type="PackedScene" uid="uid://crhldia8ni36t" path="res://features/exploration_context/NPCs/sick_zombie.tscn" id="4_m33fs"]
+[ext_resource type="PackedScene" uid="uid://byavg66c1nmn5" path="res://features/exploration_context/NPCs/frat_girl.tscn" id="5_3jkh6"]
+[ext_resource type="PackedScene" uid="uid://c60ay2kvx361n" path="res://features/exploration_context/NPCs/frat_guy.tscn" id="6_i87lw"]
 [ext_resource type="PackedScene" uid="uid://b4rcmg0h7xad6" path="res://features/exploration_context/module_dialogue/ui_dialogue.tscn" id="6_ijygs"]
 [ext_resource type="PackedScene" uid="uid://g3hswjufwa84" path="res://features/exploration_context/blender/door.glb" id="6_scb8x"]
 [ext_resource type="Environment" uid="uid://botyvsetr4ros" path="res://resources/cruise_ship_environment.tres" id="8_8vwsg"]
@@ -103,7 +106,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 1.3962634, 0), Vector3(0, 3.1415925, 0)]
+"values": [Vector3(0, 2.1991148, 0), Vector3(0, 3.1415925, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_l0k3c"]
@@ -149,13 +152,13 @@ tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/path = NodePath("door/door_001:rotation")
-tracks/0/interp = 1
+tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector3(0, 3.1415927, 0), Vector3(0, 1.3962634, 0)]
+"values": [Vector3(0, 3.1415927, 0), Vector3(0, 2.1991148, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ngw8m"]
@@ -208,13 +211,6 @@ environment = ExtResource("8_8vwsg")
 [node name="lights" type="Node3D" parent="." unique_id=1943914228]
 transform = Transform3D(-1, 0, 1.509958e-07, 0, 1, 0, -1.509958e-07, 0, -1, -3.9030995, 1.3157427, 0.049513612)
 
-[node name="room_401_outer_light" type="SpotLight3D" parent="lights" unique_id=1234560684]
-transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, 3.4475036, 1.1439021, -7.1850834)
-light_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
-light_energy = 1.786
-spot_range = 3.961
-spot_angle = 84.18
-
 [node name="window_light" type="OmniLight3D" parent="lights" unique_id=815575663]
 transform = Transform3D(-0.038858093, 0.485893, -0.8731541, 0.021602467, 0.8740183, 0.48541257, 0.9990112, -7.7096786e-08, -0.04445917, -15.352098, 0.28486133, 4.3507886)
 light_color = Color(0.5019608, 0.5411765, 0.63529414, 1)
@@ -223,38 +219,202 @@ omni_range = 3.262
 omni_attenuation = 0.777
 
 [node name="window_light2" type="OmniLight3D" parent="lights" unique_id=163616137]
-transform = Transform3D(-0.038858093, 0.485893, -0.8731541, 0.021602467, 0.8740183, 0.48541257, 0.9990112, -7.7096786e-08, -0.04445917, 7.7439666, 0.28486133, -7.4288445)
+transform = Transform3D(-0.038858093, 0.485893, -0.8731541, 0.021602467, 0.8740183, 0.48541257, 0.9990112, -7.7096786e-08, -0.04445917, 7.4111075, 0.28486133, -7.428845)
 light_color = Color(0.5019608, 0.5411765, 0.63529414, 1)
 light_energy = 2.715
-omni_range = 3.262
+omni_range = 2.562
 omni_attenuation = 0.777
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="lights" unique_id=616123042]
 transform = Transform3D(-1, 0, -1.509958e-07, 0, 1, 0, 1.509958e-07, 0, -1, -3.9031, -1.3157427, -2.6497102)
+visible = false
 light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
 directional_shadow_mode = 0
-sky_mode = 2
 
-[node name="room_401_inner_light" type="OmniLight3D" parent="lights" unique_id=1537005013]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6748648, 0.15011358, -17.110155)
-light_color = Color(0.5529412, 0.6156863, 0.5647059, 1)
-light_energy = 5.107
+[node name="break_room" type="Node3D" parent="lights" unique_id=940057998]
 
-[node name="break_room_light" type="OmniLight3D" parent="lights" unique_id=46610866]
+[node name="break_room_light" type="OmniLight3D" parent="lights/break_room" unique_id=46610866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.675385, 0.19387746, -3.2624898)
 light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
 light_energy = 5.107
 omni_range = 2.485
 
-[node name="room_401_character_light" type="OmniLight3D" parent="lights" unique_id=1411697868]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4968886, -0.16628337, -9.456445)
+[node name="bunk_bed_light" type="OmniLight3D" parent="lights/break_room" unique_id=2141083922]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.586285, 1.0883639, -1.3108356)
+light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+light_energy = 7.534
+omni_range = 2.268
+
+[node name="bunk_bed_light2" type="OmniLight3D" parent="lights/break_room" unique_id=244550282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.586285, 0.7640717, -5.3952603)
+light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+light_energy = 0.49
+omni_range = 2.497
+
+[node name="room_401" type="Node3D" parent="lights" unique_id=1395479682]
+
+[node name="room_401_outer_light" type="SpotLight3D" parent="lights/room_401" unique_id=1234560684]
+transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, 3.4475036, 1.1439021, -7.1850834)
+light_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_401_inner_light" type="OmniLight3D" parent="lights/room_401" unique_id=1537005013]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6748648, 0.15011358, -17.110155)
+light_color = Color(0.5529412, 0.6156863, 0.5647059, 1)
+light_energy = 5.107
+
+[node name="room_401_character_light" type="OmniLight3D" parent="lights/room_401" unique_id=1411697868]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.8738136, 0.17855895, -9.079115)
 light_color = Color(0.5529412, 0.6156863, 0.5647059, 1)
 light_energy = 5.821
 light_specular = 0.0
 omni_range = 2.54
 
-[node name="fish_guy" parent="." unique_id=416766280 instance=ExtResource("3_pttga")]
-transform = Transform3D(-1.3, 0, -1.13649605e-07, 0, 1.3, 0, 1.13649605e-07, 0, -1.3, -7.494229, 0.02390939, 10.339564)
+[node name="room_402" type="Node3D" parent="lights" unique_id=893804630]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -2.1200519, 0, -11.701294)
+
+[node name="room_402_outer_light" type="SpotLight3D" parent="lights/room_402" unique_id=360287809]
+transform = Transform3D(1, -9.831662e-08, -3.639399e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -2.690752, 1.1439021, -10.901119)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_402_inner_light" type="OmniLight3D" parent="lights/room_402" unique_id=1016999754]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.3297095, 0.15011358, -19.88192)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_402_character_light" type="OmniLight3D" parent="lights/room_402" unique_id=1652598838]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.70434, 0.17855895, -11.89299)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="room_403" type="Node3D" parent="lights" unique_id=867670456]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.6938772, 0, 9.702002)
+
+[node name="room_403_outer_light" type="SpotLight3D" parent="lights/room_403" unique_id=1125702966]
+transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -2.690752, 0.17811465, -11.54668)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_403_inner_light" type="OmniLight3D" parent="lights/room_403" unique_id=1708790250]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7957819, 0.15011358, -20.955418)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_403_character_light" type="OmniLight3D" parent="lights/room_403" unique_id=1313343029]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.152614, 0.17855895, -13.482072)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="room_404" type="Node3D" parent="lights" unique_id=853521035]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.358767, 0, 9.702002)
+
+[node name="room_404_outer_light" type="SpotLight3D" parent="lights/room_404" unique_id=212694698]
+transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -2.6907525, 0.920748, -11.63306)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_404_inner_light" type="OmniLight3D" parent="lights/room_404" unique_id=255421213]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.9081335, 0.15011358, -20.743834)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_404_character_light" type="OmniLight3D" parent="lights/room_404" unique_id=1851800492]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.153934, 0.17855895, -13.306284)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="room_405" type="Node3D" parent="lights" unique_id=1423148568]
+transform = Transform3D(-4.371138e-08, 0, -1, 0, 1, 0, 1, 0, -4.371138e-08, -19.933367, 0, 5.0091696)
+
+[node name="room_405_outer_light" type="SpotLight3D" parent="lights/room_405" unique_id=737951194]
+transform = Transform3D(1, -9.831662e-08, -3.6393985e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -3.4647703, 0.575289, -11.5613785)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_405_inner_light" type="OmniLight3D" parent="lights/room_405" unique_id=360482057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.4407845, -0.10292816, -17.941368)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_405_character_light" type="OmniLight3D" parent="lights/room_405" unique_id=1696338708]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.4026976, 0.17855895, -13.416836)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="room_406" type="Node3D" parent="lights" unique_id=189062940]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -14.654081, 0, -7.190028)
+
+[node name="room_406_outer_light" type="SpotLight3D" parent="lights/room_406" unique_id=751699582]
+transform = Transform3D(1, -9.831662e-08, -3.639399e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -3.448464, 0.920748, -11.63306)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_406_inner_light" type="OmniLight3D" parent="lights/room_406" unique_id=493511392]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.908133, 0.15011358, -21.400646)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_406_character_light" type="OmniLight3D" parent="lights/room_406" unique_id=1367542210]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.153933, 0.17855895, -14.2082405)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="room_407" type="Node3D" parent="lights" unique_id=679540622]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.7152405, 0, 14.705174)
+
+[node name="room_407_outer_light" type="SpotLight3D" parent="lights/room_407" unique_id=185400476]
+transform = Transform3D(1, -9.831661e-08, -3.6393978e-08, 9.8316605e-08, 0.7589735, 0.65112156, -3.6394e-08, -0.65112156, 0.7589735, -3.74158, 0.920748, -11.047277)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.786
+spot_range = 3.961
+spot_angle = 84.18
+
+[node name="room_407_inner_light" type="OmniLight3D" parent="lights/room_407" unique_id=1595722439]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.6349726, 0.15011358, -19.74282)
+light_color = Color(0.6666667, 0.627451, 0.7137255, 1)
+light_energy = 5.107
+
+[node name="room_407_character_light" type="OmniLight3D" parent="lights/room_407" unique_id=550889575]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.861992, 0.17855895, -13.306282)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 5.821
+light_specular = 0.0
+omni_range = 2.54
+
+[node name="characters" type="Node3D" parent="." unique_id=22501275]
+
+[node name="fish_guy" parent="characters" unique_id=1326024616 instance=ExtResource("4_m33fs")]
+transform = Transform3D(-1.1676242, 0, -0.276864, 0, 1.2, 0, 0.276864, 0, -1.1676242, -7.7678905, 0.1230427, 10.329674)
+
+[node name="wino_mom" parent="characters" unique_id=1058927801 instance=ExtResource("4_l0k3c")]
+transform = Transform3D(0.9918392, 0, 0.12749562, 0, 1, 0, -0.12749562, 0, 0.9918392, -4.893113, 0.16978744, -0.9226991)
+
+[node name="frat_girl" parent="characters" unique_id=2138803371 instance=ExtResource("5_3jkh6")]
+
+[node name="frat_guy" parent="characters" unique_id=721444389 instance=ExtResource("6_i87lw")]
 
 [node name="player" parent="." unique_id=1141854583 instance=ExtResource("3_r63nq")]
 unique_name_in_owner = true
@@ -265,7 +425,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.785308, 1.8529409, 1.50104
 [node name="door" parent="." unique_id=654221504 instance=ExtResource("6_scb8x")]
 
 [node name="door_001" parent="door" index="0" unique_id=1007672796]
-transform = Transform3D(-1.0438598, 0, 6.039833e-08, 0, 1.3294619, 0, -1.5761846e-07, 0, -0.40000004, -3.9030995, 1.3157427, 0.049513612)
+transform = Transform3D(-1.0438598, 0, 6.039832e-08, 0, 1.3294619, 0, -1.5761846e-07, 0, -0.4, -3.9030995, 1.3157427, 0.049513612)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=694602179]
 
@@ -277,6 +437,7 @@ unique_name_in_owner = true
 
 [node name="ui_quest" parent="." unique_id=398989595 instance=ExtResource("8_scb8x")]
 unique_name_in_owner = true
+visible = false
 
 [node name="anim_player" type="AnimationPlayer" parent="." unique_id=2092164824]
 unique_name_in_owner = true
@@ -290,18 +451,28 @@ unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.500937, 0.014255285, 13.151718)
 quest_res = ExtResource("10_jj7he")
 
+[node name="family_quest" parent="quest_and_dialogue_triggers" unique_id=2026543699 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.772175, 0.65252674, 0.2157886)
+dialogue_res = ExtResource("12_p4kl2")
+quest_res = ExtResource("12_0mk7v")
+
+[node name="return_from_family_quest" parent="quest_and_dialogue_triggers" unique_id=1549393235 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.494867, 0.3313247, 3.5542006)
+dialogue_res = ExtResource("19_l0k3c")
+quest_res = ExtResource("20_3jkh6")
+
 [node name="break_room_quest" parent="quest_and_dialogue_triggers" unique_id=51747122 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.393036, 0.16466433, 4.150366)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.393036, 0.16466433, 3.7260375)
 dialogue_res = ExtResource("11_5rl2h")
 quest_res = ExtResource("11_p4kl2")
 
 [node name="fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=18549900 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.4006157, 0.36951196, 8.769788)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -7.700163, 0.59210944, 9.024934)
 dialogue_res = ExtResource("3_6pqgb")
 quest_res = ExtResource("11_1k85v")
 
 [node name="return_from_fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=1116952539 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428465, 0.2528109, 4.049118)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428465, 0.2528109, 3.5841336)
 dialogue_res = ExtResource("15_pttga")
 quest_res = ExtResource("16_m33fs")
 
@@ -314,16 +485,6 @@ quest_res = ExtResource("22_2j8wc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.239355, 0.30563298, 4.0511236)
 dialogue_res = ExtResource("23_frual")
 quest_res = ExtResource("24_nsmfo")
-
-[node name="family_quest" parent="quest_and_dialogue_triggers" unique_id=2026543699 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.6744099, 0.0071276426, 0.2157886)
-dialogue_res = ExtResource("12_p4kl2")
-quest_res = ExtResource("12_0mk7v")
-
-[node name="return_from_family_quest" parent="quest_and_dialogue_triggers" unique_id=1549393235 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.494867, 0.3313247, 4.0557957)
-dialogue_res = ExtResource("19_l0k3c")
-quest_res = ExtResource("20_3jkh6")
 
 [node name="party_quest" parent="quest_and_dialogue_triggers" unique_id=1308817822 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.714316, 0.0071276426, -5.8444037)

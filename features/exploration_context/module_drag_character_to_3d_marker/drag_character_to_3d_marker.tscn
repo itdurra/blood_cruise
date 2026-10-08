@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://bqwl8ymn7kcai"]
+
+[ext_resource type="Script" uid="uid://bjsv8ooevnmvx" path="res://features/exploration_context/module_drag_character_to_3d_marker/drag_character_to_3d_marker.gd" id="1_jwkst"]
+
+[node name="DragCharacterTo3dMarker" type="Node3D" unique_id=377953588]
+script = ExtResource("1_jwkst")

@@ -9,22 +9,26 @@ class_name InteractableDialogueWithQuests extends Node
 
 #node
 @onready var interaction: Interactable = %interaction
+@onready var marker: DragCharacterTo3DMarker = %drag_character_to_3d_marker
 
 signal dialogue_requested(dialogue_res_local: DialogueResource)
 signal quest_started(quest_description_local: String)
+
+var player_char: PlayerCharacter
 
 #build any services or other variables that we need in this context
 func build() -> void:
 	pass
 
 # pass in and bind any dependencies that this context needs from parent
-func bind_dependencies() -> void:
-	pass
+func bind_dependencies(player_char_local: PlayerCharacter) -> void:
+	player_char = player_char_local
 
 # at this point, we have all dependencies resolved, and so we can do any
 # setup that requires those, e.g. connect signals and use factories etc.
 func setup() -> void:
 	self.mount_interactable()
+	self.mount_marker()
 	interaction.connect("interaction_triggered", trigger_interaction)
 
 func is_active_quest() -> bool:
@@ -34,6 +38,11 @@ func mount_interactable() -> void:
 	interaction.build()
 	interaction.bind_dependencies()
 	interaction.setup()
+
+func mount_marker() -> void:
+	marker.build()
+	marker.bind_dependencies(player_char)
+	marker.setup()
 
 #trigger dialogue/quest if they exist
 func trigger_interaction() -> void:
@@ -47,6 +56,8 @@ func trigger_interaction() -> void:
 func _start_dialogue() -> void:
 	if dialogue_res == null:
 		return
+
+	marker.drag_character()
 
 	emit_signal("dialogue_requested", dialogue_res)
 

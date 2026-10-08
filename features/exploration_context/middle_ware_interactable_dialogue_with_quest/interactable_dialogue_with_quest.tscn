@@ -2,9 +2,14 @@
 
 [ext_resource type="Script" uid="uid://dwc7i7gtr1wtc" path="res://features/exploration_context/middle_ware_interactable_dialogue_with_quest/interactable_dialogue_with_quest.gd" id="1_hqwvf"]
 [ext_resource type="PackedScene" uid="uid://b2g13jj0dpidc" path="res://features/exploration_context/module_interactable/interactable.tscn" id="2_bt4oq"]
+[ext_resource type="PackedScene" uid="uid://bqwl8ymn7kcai" path="res://features/exploration_context/module_drag_character_to_3d_marker/drag_character_to_3d_marker.tscn" id="3_eggas"]
 
 [node name="InteractableDialogueWithQuest" type="Node3D" unique_id=565051135]
 script = ExtResource("1_hqwvf")
 
 [node name="interaction" parent="." unique_id=1906733455 instance=ExtResource("2_bt4oq")]
 unique_name_in_owner = true
+
+[node name="drag_character_to_3d_marker" parent="." unique_id=377953588 instance=ExtResource("3_eggas")]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55108005, 0)

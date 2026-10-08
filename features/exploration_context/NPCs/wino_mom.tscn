@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://bdbgaow4v0ry3"]
+
+[ext_resource type="PackedScene" uid="uid://lmqp4j3t60l1" path="res://features/exploration_context/blender/wino_mom.glb" id="1_ko6ea"]
+[ext_resource type="AnimationLibrary" uid="uid://dkwmee8o1fxqo" path="res://resources/anim_library.res" id="2_vmose"]
+[ext_resource type="PackedScene" uid="uid://c04vmwvoawt2y" path="res://features/exploration_context/blender/wine_bottle.glb" id="3_wxsx0"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_o2r1j"]
+animation = &"anim_library/female_standing_mixamo"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ko6ea"]
+animation = &"anim_library/idle_no_without_head_shake"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_vmose"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_o2r1j")
+blend_point_0/pos = -1.0
+blend_point_0/name = &"anim_library_female_standing_mixamo"
+blend_point_1/node = SubResource("AnimationNodeAnimation_ko6ea")
+blend_point_1/pos = 1.0
+blend_point_1/name = &"anim_library_Idle_FoldArms"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_pso6v"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_o2r1j"]
+states/BlendSpace1D/node = SubResource("AnimationNodeBlendSpace1D_vmose")
+states/BlendSpace1D/position = Vector2(466.8, -14)
+states/Start/position = Vector2(213.6, 73.6)
+transitions = ["Start", "BlendSpace1D", SubResource("AnimationNodeStateMachineTransition_pso6v")]
+graph_offset = Vector2(108, -106)
+
+[node name="wino_mom" unique_id=1058927801 instance=ExtResource("1_ko6ea")]
+
+[node name="GeneralSkeleton" parent="Armature_001" parent_id_path=PackedInt32Array(1766267637) index="0" unique_id=524413969]
+bones/0/position = Vector3(0.002598273, 1.1266981, -0.049674798)
+bones/0/rotation = Quaternion(-0.0134173995, -0.04061215, -0.055771604, 0.997527)
+bones/1/rotation = Quaternion(0.0786246, 0.011439124, -0.0042917943, 0.9968294)
+bones/2/rotation = Quaternion(-0.054223817, -0.001338318, 0.040985942, 0.99768645)
+bones/3/rotation = Quaternion(-0.05436681, 0.002009831, 0.040917948, 0.9976803)
+bones/4/rotation = Quaternion(0.012588036, 0.02110025, 0.0320187, 0.99918526)
+bones/5/rotation = Quaternion(0.09604515, 0.04238818, -0.05555122, 0.9929213)
+bones/7/rotation = Quaternion(0.5021251, 0.48859778, 0.49350145, -0.51536286)
+bones/8/rotation = Quaternion(0.18133499, 0.8248557, -0.3256871, -0.4250397)
+bones/9/rotation = Quaternion(0.29112312, -0.49493, 0.4422065, 0.6890174)
+bones/10/rotation = Quaternion(0.04979723, 0.74085355, 0.45982945, 0.4870454)
+bones/15/rotation = Quaternion(0.44875154, -0.49983755, -0.53830916, -0.508928)
+bones/16/rotation = Quaternion(0.08620086, 0.948441, -0.30395725, 0.025281796)
+bones/16/scale = Vector3(0.9999995, 0.99999976, 0.9999996)
+bones/17/rotation = Quaternion(0.09568309, 0.6564794, -0.11021794, 0.7400889)
+bones/18/rotation = Quaternion(0.008168381, -0.648732, 0.026809659, 0.7605008)
+bones/18/scale = Vector3(0.9999999, 1, 1.0000002)
+bones/23/rotation = Quaternion(-0.1502933, 0.16647212, 0.9738151, -0.037192047)
+bones/24/rotation = Quaternion(-0.0062508327, 0.9411846, -0.33763096, 0.011741656)
+bones/25/rotation = Quaternion(0.07483674, 0.8691139, -0.48835897, -0.023369169)
+bones/26/rotation = Quaternion(0.026187437, 0.9434202, 0.31406, 0.10314555)
+bones/28/rotation = Quaternion(0.02712615, 0.024934486, 0.99475527, -0.095417336)
+bones/29/rotation = Quaternion(-0.02603758, 0.9862207, -0.110182405, 0.12062607)
+bones/30/rotation = Quaternion(-0.07649856, 0.7171603, -0.6913765, 0.042751018)
+bones/31/rotation = Quaternion(4.6170236e-08, 0.9931179, 0.11711921, 1.3436153e-07)
+
+[node name="BoneAttachment3D" type="BoneAttachment3D" parent="Armature_001/GeneralSkeleton" index="1" unique_id=398683515]
+transform = Transform3D(0.059393935, -0.7698844, 0.6354134, 0.07664418, -0.63114077, -0.7718721, 0.9952871, 0.09454518, 0.02152118, -0.37854752, 1.0424191, -0.098347634)
+bone_name = "RightHand"
+bone_idx = 18
+
+[node name="wine_bottle" parent="Armature_001/GeneralSkeleton/BoneAttachment3D" index="0" unique_id=1900748388 instance=ExtResource("3_wxsx0")]
+transform = Transform3D(0.035172746, 0.080170095, 0.04832858, -0.07072662, -0.011061985, 0.06982395, 0.061323933, -0.058740117, 0.052810755, -0.14300358, 0.12763916, 0.23764026)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=1149059918]
+libraries/anim_library = ExtResource("2_vmose")
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=23218002]
+tree_root = SubResource("AnimationNodeStateMachine_o2r1j")
+anim_player = NodePath("../AnimationPlayer")
+parameters/BlendSpace1D/blend_position = -0.6836302

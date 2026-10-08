@@ -92,7 +92,7 @@ func _mount_interactables() -> void:
 		interaction.connect("dialogue_requested", _mount_dialogue_module)
 		interaction.connect("quest_started", _update_quests)
 		interaction.build()
-		interaction.bind_dependencies()
+		interaction.bind_dependencies(player)
 		interaction.setup()
 
 	self._setup_first_quest()

@@ -12,21 +12,41 @@ grow_vertical = 2
 focus_mode = 2
 script = ExtResource("1_h55ha")
 
-[node name="dialogue_box" type="PanelContainer" parent="." unique_id=1668298531]
+[node name="dialogue_label" type="Label" parent="." unique_id=540006063]
 unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 1
 anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -96.0
+offset_top = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_type_variation = &"dialogue_text"
+text = "Sample text goes here"
+horizontal_alignment = 1
+
+[node name="dialogue_box" type="PanelContainer" parent="." unique_id=1668298531]
+unique_name_in_owner = true
+visible = false
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.5
+offset_top = -181.0
+offset_right = 192.5
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_vertical = 8
 
 [node name="MarginContainer" type="MarginContainer" parent="dialogue_box" unique_id=518700697]
 layout_mode = 2
-theme_type_variation = &"dialogue_margin"
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="VBoxContainer" type="VBoxContainer" parent="dialogue_box/MarginContainer" unique_id=643803735]
 layout_mode = 2
@@ -36,15 +56,10 @@ layout_mode = 2
 
 [node name="name_label" type="Label" parent="dialogue_box/MarginContainer/VBoxContainer/MarginContainer" unique_id=81094520]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 theme_type_variation = &"dialogue_label"
 text = "Testing"
-
-[node name="dialogue_label" type="Label" parent="dialogue_box/MarginContainer/VBoxContainer" unique_id=540006063]
-unique_name_in_owner = true
-layout_mode = 2
-theme_type_variation = &"dialogue_text"
-text = "Sample text goes here"
 
 [node name="voice_line_player" type="AudioStreamPlayer" parent="." unique_id=1080898399]
 unique_name_in_owner = true
