@@ -1,12 +1,8 @@
 [gd_scene format=3 uid="uid://3jrsmq2hjxee"]
 
 [ext_resource type="Script" uid="uid://6cn5o6o3itt4" path="res://features/cutscene_context/cutscene_context.gd" id="1_vhyrp"]
+[ext_resource type="PackedScene" uid="uid://k2oenkfhwol6" path="res://features/cutscene_context/boat_in_the_ocean_context/boat_in_the_ocean_context.tscn" id="2_gcovo"]
 
-[node name="CutsceneContext" type="Control" unique_id=1918066396]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="cutscene_context" type="Node3D" unique_id=1258019135]
 script = ExtResource("1_vhyrp")
+boat_in_the_ocean_scene = ExtResource("2_gcovo")

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://c371svh0vhrpw"]
+
+[ext_resource type="Script" uid="uid://dechisgdf7s3x" path="res://features/main_menu_context/module_settings_menu/ui_settings_menu.gd" id="1_padc5"]
+[ext_resource type="PackedScene" uid="uid://cwfthwrdx7qdn" path="res://features/main_menu_context/module_settings_menu/ui_audio_settings_tab.tscn" id="2_41u4d"]
+[ext_resource type="PackedScene" uid="uid://heojcs34qodl" path="res://features/main_menu_context/module_settings_menu/ui_game_settings_tab.tscn" id="3_khfqv"]
+
+[node name="UISettingsMenu" type="PanelContainer" unique_id=520321447]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_padc5")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=344295913]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=499667666]
+layout_mode = 2
+
+[node name="audio_tab" parent="MarginContainer/VBoxContainer" unique_id=553476861 instance=ExtResource("2_41u4d")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="game_tab" parent="MarginContainer/VBoxContainer" unique_id=1177640137 instance=ExtResource("3_khfqv")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="back_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=545994114]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Back"
+
+[node name="quit_button" type="Button" parent="MarginContainer/VBoxContainer" unique_id=1732779958]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Quit"

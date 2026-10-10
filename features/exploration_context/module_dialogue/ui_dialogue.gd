@@ -4,15 +4,20 @@ var dialogue_res: DialogueResource
 
 @onready var name_label: Label = %name_label
 @onready var dialogue_label: Label = %dialogue_label
+@onready var player_dialogue_label: Label = %player_dialogue_label
 @onready var voice_line_player: AudioStreamPlayer = %voice_line_player
 @onready var dialogue_box: PanelContainer = %dialogue_box
 
 signal dialogue_ended
 signal animation_requested(anim_name_local: String)
 
+@export var player_name: String = "Brad"
 @export var text_speed: int = 1
+
 var is_typing: bool = false
+var player_is_typing: bool = false
 var total_characters: int = 0
+var player_total_characters: int = 0
 
 #build any services or other variables that we need in this context
 func build() -> void:
@@ -60,13 +65,23 @@ func set_dialogue() -> void:
 	if !dialogue_res:
 		return
 
-	dialogue_label.text = dialogue_res.get_text()
+	if name_label.text == player_name:
+		player_dialogue_label.text = dialogue_res.get_text()
 
-	#typewriter effect
-	total_characters = dialogue_label.text.length()
-	is_typing = true
-	dialogue_label.visible_characters = 0
+		#typewriter effect
+		player_total_characters = player_dialogue_label.text.length()
+		player_is_typing = true
+		player_dialogue_label.visible_characters = 0
+		dialogue_label.visible_characters = 0	
 
+	else:
+		dialogue_label.text = dialogue_res.get_text()
+
+		#typewriter effect
+		total_characters = dialogue_label.text.length()
+		is_typing = true
+		dialogue_label.visible_characters = 0
+		player_dialogue_label.visible_characters = 0
 
 #requests a voice line
 func set_voice_line() -> void:
@@ -88,15 +103,27 @@ func trigger_anim() -> void:
 		emit_signal("animation_requested", anim_name_local)
 
 func _handle_input(event: InputEvent) -> void:
-	if event.is_action_pressed("Interact") || event.is_action_pressed("ui_accept"):
+	if (
+		event.is_action_pressed("Interact") || 
+		event.is_action_pressed("ui_accept")
+	):
 		self.next_line()
 
 #typewriter effect
 func _process(_delta: float) -> void:
-	if !is_typing:
-		return
+	if name_label.text == player_name:
+		if !player_is_typing:
+			return
 
-	if dialogue_label.visible_characters < total_characters:
-		dialogue_label.visible_characters += text_speed	
+		if player_dialogue_label.visible_characters < player_total_characters:
+			player_dialogue_label.visible_characters += text_speed	
+		else:
+			player_is_typing = false
 	else:
-		is_typing = false
+		if !is_typing:
+			return
+
+		if dialogue_label.visible_characters < total_characters:
+			dialogue_label.visible_characters += text_speed	
+		else:
+			is_typing = false

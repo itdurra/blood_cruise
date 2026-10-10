@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_kcb7b")
-character_names = Array[String](["Brad", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon"])
-dialogues = Array[String](["Hello?", "Hey, uh why do you look so scared?", "What's with the getup?", "Oh right my costume!", "It's cosplay night, and I love clowns.", "Is that real blood?", "Oh, I actually fell down the stairs.", "Do you know where the nearest hospital is located?", "I'll send the ship medic to your room.", "Thank you."])
+character_names = Array[String](["Chief", "Brad", "Chief", "Chief", "Brad", "Chief", "Brad", "Chief", "Chief", "Chief"])
+dialogues = Array[String](["Brad, Brad Boileux, report for duty", "Hello, I'm here and reporting for duty.", "Congratulations sailor, you completed the game!", "One last task.", "What is it?", "I need you to leave a game satisfaction survey.", "A game satisfaction survey?", "Leave a comment ranking your experience between 1 and 10.", "Anything less than a ten means the game is dead.", "So let's see those perfect tens sailor!"])
 voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_u4gek"), ExtResource("3_frx6q"), ExtResource("2_u4gek"), ExtResource("3_frx6q"), ExtResource("2_u4gek")])
-anim_names = Array[String](["", "door_opening/open_door_404", "", "", "", "", "", "", "", "door_opening/close_door_404"])
+anim_names = Array[String](["", "", "", "", "", "", "", "", "", ""])
 metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

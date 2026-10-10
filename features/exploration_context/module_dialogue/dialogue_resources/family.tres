@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_5tpsp")
-character_names = Array[String](["Brad", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon", "Darmon", "Brad", "Darmon"])
-dialogues = Array[String](["Knock, knock, knock.", "Shut up, shut up you brats.", "What is it, you interrupted my nightcap.", "Oh right my costume!", "It's cosplay night, and I love clowns.", "Is that real blood?", "Oh, I actually fell down the stairs.", "Do you know where the nearest hospital is located?", "I'll send the ship medic to your room.", "Thank you."])
-voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_ac05a"), ExtResource("3_8isjs"), ExtResource("2_ac05a"), ExtResource("3_8isjs"), ExtResource("2_ac05a")])
-anim_names = Array[String](["", "door_opening/open_door_402", "", "", "", "", "", "", "", "door_opening/close_door_402"])
+character_names = Array[String](["Brad", "Delilah", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Brad", "Delilah", "Delilah"])
+dialogues = Array[String](["Knock, knock, knock.", "Shut up, shut up you brats.", "What is it, you interrupted my nightcap.", "Just need to check your name Ma'am.", "Well you are a tall drink of whiskey.", "Oh.", "Well don't just stand there, out with it.", "Are you Delilah Montague? ", "I am honey.", "And are Zaydyn and Zyair Montague here as well.", "Yes, but we have more important things to discuss.", "Thank you, that is all I need.", "Well not so fast, I hardly get any company any more.", "I really should be getting back.", "Here's my room key. My kids will be asleep by nine.", "I'm not allowed to fraternize with guests.", "Take the key, or I'll give you a bad rating on your survey.", "Ok, ok.", "See you later stranger. ", "You've earned a perfect ten."])
+voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_ac05a"), ExtResource("3_8isjs"), ExtResource("2_ac05a"), ExtResource("3_8isjs"), ExtResource("2_ac05a"), null, null, null, null, null, null, null, null, null, null, null, null, null, null, null])
+anim_names = Array[String](["", "", "door_opening/open_door_402", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "door_opening/close_door_402"])
 metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

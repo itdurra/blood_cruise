@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_7ydnn")
-character_names = Array[String](["Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Darryl", "Brad", "Darryl", "Brad", "Darryl"])
-dialogues = Array[String](["Knock knock", "Who's there?", "Are you ok sir?", "I've been poisoned.", "What? Who did this to you.", "A fish.", "A fish?", "The salmon, don't order the salmon.", "Food poisoning! Is there any medicine I can get you?", "No, no, just let get back to the fetal position.", "This'll pass before tomorrow's Lobster dinner.", "I do need to confirm are you Darryl Critchaw?", "Yes I am.", "As you were.", "That's going to leave a mark, hemorrhoid city, population Darryl."])
+character_names = Array[String](["Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Brad", "Darryl", "Darryl", "Brad", "Darryl", "Brad", "Brad", "Darryl", "Brad"])
+dialogues = Array[String](["Knock knock.", "Who's there?", "Are you ok sir?", "I've been poisoned.", "What? Who did this to you.", "A fish.", "A fish?", "The salmon, don't order the salmon.", "Food poisoning! Is there any medicine I can get you?", "No, no, just let me get back to the fetal position.", "This'll pass before tomorrow's Lobster dinner.", "I do need to confirm are you Darryl Critchaw?", "Yes I am.", "Would you mind filling out a passenger feedback survey?", "It's rated 1-10 and anything less than a ten my boss has threatened to kill me", "*incomprehensible moaning*", "Maybe some other time."])
 voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_exfuc"), ExtResource("3_no6ql"), ExtResource("2_exfuc"), ExtResource("3_no6ql"), ExtResource("2_exfuc")])
-anim_names = Array[String](["", "door_opening/open_door_401", "", "", "", "", "", "", "", "", "", "", "", "door_opening/close_door_401", ""])
+anim_names = Array[String](["", "door_opening/open_door_401", "", "", "", "", "", "", "", "", "", "", "", "", "", "door_opening/close_door_401", ""])
 metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

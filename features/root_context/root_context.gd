@@ -4,13 +4,13 @@ enum SubContext {
 	GameContext,
 	MenuContext,
 }
-var current_subcontext: SubContext
-var current_subcontext_node: Node
 
 @export var game_scene: PackedScene
 @export var menu_scene: PackedScene
+@export var player_data: PlayerData
 
-var _music_player: AudioStreamPlayer
+var current_subcontext: SubContext
+var current_subcontext_node: Node
 
 func _ready() -> void:
 	self.build()
@@ -19,9 +19,7 @@ func _ready() -> void:
 
 func build() -> void:
 	#build any services or other variables that we need in this context
-	_music_player = AudioStreamPlayer.new()
-	_music_player.autoplay = true
-	add_child(_music_player)
+	pass
 
 func bind_dependencies() -> void:
 	# pass in and bind any dependencies that this context needs from parent
@@ -49,12 +47,11 @@ func mount_game() -> void:
 		printerr("Missing subcontext")
 		return
 
-	if OS.is_debug_build():
-		print("game")
-
 	game_subcontext.build()
-	game_subcontext.bind_dependencies()
+	game_subcontext.bind_dependencies(player_data)
 	game_subcontext.setup()
+
+	game_subcontext.connect("return_to_main_menu", mount_menu)
 
 func mount_menu() -> void:
 	#tear down old subcontext
@@ -77,5 +74,6 @@ func mount_menu() -> void:
 		return
 
 	menu_subcontext.build()
-	menu_subcontext.bind_dependencies(_music_player)
+	menu_subcontext.bind_dependencies(player_data)
 	menu_subcontext.setup()
+	

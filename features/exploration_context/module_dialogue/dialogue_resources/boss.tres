@@ -6,8 +6,8 @@
 
 [resource]
 script = ExtResource("1_bfpxh")
-character_names = Array[String](["Chief", "Brad", "Chief", "Brad", "Chief", "Chief", "Chief", "Brad", "Chief", "Chief", "Chief", "Brad", "Chief"])
-dialogues = Array[String](["Brad, Brad Boileux, report for duty.", "Hello, this is Brad?", "What's your rank sailor.", "I just started as a Stateroom Attendant.", "Congratulations sailor, you're the lowest rank on the ship.", "Normally I'd motivate you with a demotion…", "Let's just say I'll throw you overboard if you break the rules.", "Ok understood.", "Now let's get that butt in gear. We have a murdered passenger.", "The guests are restricted to their rooms while we confirm the passenger manifest.", "Go to room 401, and confirm Darryl Critchaw is on-board.", "Yes, I will do that.", "On the double sailor, don't let me down."])
-voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_fhgxu"), ExtResource("3_gepam"), ExtResource("2_fhgxu"), ExtResource("3_gepam"), ExtResource("2_fhgxu")])
-anim_names = Array[String](["", "", "", "", "", "", "", "", "", "", "", "", ""])
+character_names = Array[String](["Chief", "Brad", "Chief", "Brad", "Chief", "Chief", "Chief", "Brad", "Chief", "Chief", "Chief", "Brad", "Chief", "Chief", "Brad", "Chief"])
+dialogues = Array[String](["Brad, Brad Boileux, report for duty.", "Hello, this is Brad?", "What's your rank sailor.", "I just started as a Stateroom Attendant.", "Congratulations, you're the lowest rank on the ship.", "Normally I'd motivate you with a demotion…", "Let's just say I'll throw you overboard if you break the rules.", "Ok understood.", "Now let's get that butt in gear. We have a murdered passenger.", "The guests are restricted to their rooms while we confirm the passenger manifest.", "Go to room 401, and confirm Darryl Critchaw is on-board.", "Yes, I will do that.", "Don't forget to ask for your passenger feedback surveys.", "Anything less than a ten means I'll push you off the boat.", "Oh, ok.", "On the double sailor, don't let me down."])
+voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_fhgxu"), ExtResource("3_gepam"), ExtResource("2_fhgxu"), ExtResource("3_gepam"), ExtResource("2_fhgxu"), null, null, null, null, null, null, null, null, null, null, null])
+anim_names = Array[String](["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""])
 metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

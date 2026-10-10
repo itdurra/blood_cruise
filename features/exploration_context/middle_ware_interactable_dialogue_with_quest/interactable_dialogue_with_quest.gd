@@ -6,6 +6,7 @@ class_name InteractableDialogueWithQuests extends Node
 #data resources
 @export var dialogue_res: DialogueResource
 @export var quest_res: QuestResource
+@export var enable_from_start: bool = false
 
 #node
 @onready var interaction: Interactable = %interaction
@@ -30,6 +31,9 @@ func setup() -> void:
 	self.mount_interactable()
 	self.mount_marker()
 	interaction.connect("interaction_triggered", trigger_interaction)
+
+	if enable_from_start:
+		self.enable_interaction()
 
 func is_active_quest() -> bool:
 	return quest_res.is_active_quest()

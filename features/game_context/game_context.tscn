@@ -4,7 +4,6 @@
 [ext_resource type="PackedScene" uid="uid://3jrsmq2hjxee" path="res://features/cutscene_context/cutscene_context.tscn" id="2_vucdh"]
 [ext_resource type="PackedScene" uid="uid://rffkbwtkw8tf" path="res://features/exploration_context/exploration_context.tscn" id="3_0vu4v"]
 [ext_resource type="PackedScene" uid="uid://b0u5wp5smukkl" path="res://features/game_context/module_pause_menu/ui_pause_menu.tscn" id="5_kjdi2"]
-[ext_resource type="Script" uid="uid://bj47lb5tu80oh" path="res://features/game_context/module_pause_menu/ui_pause_menu.gd" id="6_kjdi2"]
 [ext_resource type="PackedScene" uid="uid://cmd3y6f6q646u" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps_1_convert_materials.tscn" id="6_v6i4k"]
 [ext_resource type="Material" uid="uid://d4book7tyfwd" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps1_base_vertex_wobble_material.tres" id="7_v6i4k"]
 
@@ -12,10 +11,7 @@
 script = ExtResource("1_qpoeg")
 cutscene_scene = ExtResource("2_vucdh")
 exploration_scene = ExtResource("3_0vu4v")
-
-[node name="ui_pause_menu" parent="." unique_id=873798857 instance=ExtResource("5_kjdi2")]
-unique_name_in_owner = true
-script = ExtResource("6_kjdi2")
+pause_scene = ExtResource("5_kjdi2")
 
 [node name="ps1_convert_materials" parent="." unique_id=751900272 instance=ExtResource("6_v6i4k")]
 unique_name_in_owner = true

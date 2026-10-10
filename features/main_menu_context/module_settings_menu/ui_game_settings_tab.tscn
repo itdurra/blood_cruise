@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://heojcs34qodl"]
+
+[ext_resource type="Script" uid="uid://1f48fiieojq3" path="res://features/main_menu_context/module_settings_menu/ui_game_settings_tab.gd" id="1_tybq2"]
+
+[node name="game_tab" type="VBoxContainer" unique_id=1177640137]
+script = ExtResource("1_tybq2")
+
+[node name="game_label" type="Label" parent="." unique_id=1804390744]
+layout_mode = 2
+theme_type_variation = &"dialogue_label"
+text = "Game"
+horizontal_alignment = 1
+
+[node name="GridContainer2" type="GridContainer" parent="." unique_id=215541421]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer2" unique_id=491373713]
+layout_mode = 2
+text = "FOV"
+
+[node name="fov_slider" type="HSlider" parent="GridContainer2" unique_id=196455350]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+min_value = 50.0
+max_value = 130.0
+value = 75.0

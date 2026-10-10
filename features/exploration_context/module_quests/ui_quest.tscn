@@ -30,4 +30,5 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 offset_transform_enabled = true
+theme_type_variation = &"dialogue_text_player"
 text = "Talk to your employees"

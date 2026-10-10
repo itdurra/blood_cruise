@@ -1,4 +1,4 @@
-extends Node3D
+class_name Buoey extends Node3D
 
 @export var vertical_bob: float = .1
 @export var horiz_bob: float = .05
@@ -8,18 +8,24 @@ extends Node3D
 @export var normal_time: float = 1.0
 @export var fast_rot: float = 22.0
 
-@export var particles: GPUParticles3D
-
-
 var is_in_fast_mode: int = 0
 var starting_pos: Vector3
 var starting_rot: Vector3
 
 var t: Tween
 
-func _ready() -> void:
+#build any services or other variables that we need in this context
+func build() -> void:
 	starting_pos = self.position
 	starting_rot = self.rotation
+
+# pass in and bind any dependencies that this context needs from parent
+func bind_dependencies() -> void:
+	pass
+
+# at this point, we have all dependencies resolved, and so we can do any
+# setup that requires those, e.g. connect signals and use factories etc.
+func setup() -> void:
 	self._start_bob()
 
 func _start_bob() -> void:
@@ -40,9 +46,6 @@ func _start_bob() -> void:
 	t.set_loops()
 	
 func start_fast_mode() -> void:
-	particles.emitting = true
-
-
 	if t:
 		t.kill()
 	t = create_tween()

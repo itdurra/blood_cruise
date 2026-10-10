@@ -18,18 +18,22 @@ var _tilt_input : float
 var _player_rotation : Vector3
 var _camera_rotation : Vector3
 
+var player_data: PlayerData
+
 func build() -> void:
 	#build any services or other variables that we need in this context
 	pass
 
-func bind_dependencies() -> void:
-	# pass in and bind any dependencies that this context needs from parent
-	pass
+func bind_dependencies(player_data_local: PlayerData) -> void:
+	player_data = player_data_local
 
 func setup() -> void:
 	# at this point, we have all dependencies resolved, and so we can do any
 	# setup that requires those, e.g. connect signals and use factories etc.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+
+	#setup camera
+	player_camera.fov = player_data.get_camera_fov()
 
 func get_player_camera() -> Camera3D:
 	return player_camera

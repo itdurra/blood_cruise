@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://ccdf7md4nwstj"
-path="res://.godot/imported/boat.glb-5a1c7a524624b8096db1299dd6ff094c.scn"
+uid="uid://bkhany7e20mcg"
+path="res://.godot/imported/buoey.glb-fce6f0d332f014b05e8f2889549a8f6d.scn"
 
 [deps]
 
-source_file="res://features/cutscene_context/blender/boat.glb"
-dest_files=["res://.godot/imported/boat.glb-5a1c7a524624b8096db1299dd6ff094c.scn"]
+source_file="res://features/cutscene_context/boat_in_the_ocean_context/blender/buoey.glb"
+dest_files=["res://.godot/imported/buoey.glb-fce6f0d332f014b05e8f2889549a8f6d.scn"]
 
 [params]
 

@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b87dea6q14evp"
-path.s3tc="res://.godot/imported/boat_Ucupaint boat_bottom Color.png-284244a4e14f7847deb8509bf8f15b69.s3tc.ctex"
+uid="uid://dhf7kppjv2gxh"
+path.s3tc="res://.godot/imported/buoey_Ucupaint Cylinder.png-bb8955530f69543f3dc0060a7d7347ec.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "565c5ba2aa492810e151b293632153ad"
+"md5": "54c90e75caa98542eea4d259ab8dbebe"
 }
 
 [deps]
 
-source_file="res://features/cutscene_context/blender/boat_Ucupaint boat_bottom Color.png"
-dest_files=["res://.godot/imported/boat_Ucupaint boat_bottom Color.png-284244a4e14f7847deb8509bf8f15b69.s3tc.ctex"]
+source_file="res://features/cutscene_context/boat_in_the_ocean_context/blender/buoey_Ucupaint Cylinder.png"
+dest_files=["res://.godot/imported/buoey_Ucupaint Cylinder.png-bb8955530f69543f3dc0060a7d7347ec.s3tc.ctex"]
 
 [params]
 

@@ -1,9 +1,55 @@
 [gd_resource type="Theme" format=3 uid="uid://c1rtod0jeipel"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3eiq7"]
+bg_color = Color(0.3529412, 0.38431373, 0.45882353, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+expand_margin_left = 8.0
+expand_margin_top = 4.0
+expand_margin_right = 8.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_icdp6"]
+content_margin_left = 16.0
+content_margin_top = 4.0
+content_margin_right = 16.0
+content_margin_bottom = 4.0
+bg_color = Color(0.22745098, 0.24313726, 0.28235295, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dja4e"]
+bg_color = Color(0.3529412, 0.3372549, 0.37254903, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 4
+
+[sub_resource type="StyleBoxLine" id="StyleBoxLine_7jox1"]
+color = Color(0.654902, 0.6509804, 0.5058824, 1)
+thickness = 2
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_eug2t"]
 bg_color = Color(0.1764706, 0.18039216, 0.16862746, 1)
 
 [resource]
+Button/colors/font_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+Button/colors/font_hover_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+Button/colors/font_hover_pressed_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+Button/colors/font_pressed_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+Button/font_sizes/font_size = 38
+Button/styles/hover = SubResource("StyleBoxFlat_3eiq7")
+Button/styles/normal = SubResource("StyleBoxFlat_icdp6")
+Button/styles/pressed = SubResource("StyleBoxFlat_dja4e")
+HSeparator/constants/separation = 48
+HSeparator/styles/separator = SubResource("StyleBoxLine_7jox1")
 MarginContainer/constants/margin_bottom = 12
 MarginContainer/constants/margin_left = 12
 MarginContainer/constants/margin_right = 12
@@ -17,12 +63,22 @@ dialogue_margin/constants/margin_left = 42
 dialogue_margin/constants/margin_right = 0
 dialogue_panel/base_type = &"PanelContainer"
 dialogue_panel/styles/panel = SubResource("StyleBoxFlat_eug2t")
-dialogue_text/base_type = &"Label"
-dialogue_text/colors/font_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
-dialogue_text/colors/font_outline_color = Color(0.21176471, 0.21176471, 0.18431373, 1)
-dialogue_text/colors/font_shadow_color = Color(0.1764706, 0.18039216, 0.16862746, 1)
-dialogue_text/constants/outline_size = 12
-dialogue_text/constants/shadow_offset_x = 2
-dialogue_text/constants/shadow_offset_y = 2
-dialogue_text/constants/shadow_outline_size = 10
-dialogue_text/font_sizes/font_size = 36
+dialogue_text_npc/base_type = &"Label"
+dialogue_text_npc/colors/font_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+dialogue_text_npc/colors/font_outline_color = Color(0.21176471, 0.21176471, 0.18431373, 1)
+dialogue_text_npc/colors/font_shadow_color = Color(0.1764706, 0.18039216, 0.16862746, 1)
+dialogue_text_npc/constants/outline_size = 12
+dialogue_text_npc/constants/shadow_offset_x = 2
+dialogue_text_npc/constants/shadow_offset_y = 2
+dialogue_text_npc/constants/shadow_outline_size = 10
+dialogue_text_npc/font_sizes/font_size = 36
+dialogue_text_player/base_type = &"Label"
+dialogue_text_player/colors/font_color = Color(0.7254902, 0.7490196, 0.6784314, 1)
+dialogue_text_player/constants/outline_size = 12
+dialogue_text_player/constants/shadow_offset_x = 2
+dialogue_text_player/constants/shadow_offset_y = 2
+dialogue_text_player/constants/shadow_outline_size = 10
+dialogue_text_player/font_sizes/font_size = 36
+game_title_label/base_type = &"Label"
+game_title_label/colors/font_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+game_title_label/font_sizes/font_size = 42

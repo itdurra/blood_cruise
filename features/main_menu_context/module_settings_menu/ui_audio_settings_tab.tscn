@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cwfthwrdx7qdn"]
+
+[ext_resource type="Script" uid="uid://c80aa2h7n6bqa" path="res://features/main_menu_context/module_settings_menu/ui_audio_settings_tab.gd" id="1_hgr7i"]
+
+[node name="audio_tab" type="VBoxContainer" unique_id=553476861]
+script = ExtResource("1_hgr7i")
+
+[node name="Label" type="Label" parent="." unique_id=1170626337]
+layout_mode = 2
+theme_type_variation = &"dialogue_label"
+text = "Audio"
+horizontal_alignment = 1
+
+[node name="GridContainer" type="GridContainer" parent="." unique_id=667754193]
+layout_mode = 2
+columns = 2
+
+[node name="Label" type="Label" parent="GridContainer" unique_id=86923630]
+layout_mode = 2
+text = "Master"
+
+[node name="master_volume_slider" type="HSlider" parent="GridContainer" unique_id=1162122932]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+value = -12.0
+
+[node name="Label2" type="Label" parent="GridContainer" unique_id=963502140]
+layout_mode = 2
+text = "Music"
+
+[node name="music_volume_slider" type="HSlider" parent="GridContainer" unique_id=874218949]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+value = -12.0
+
+[node name="Label3" type="Label" parent="GridContainer" unique_id=1312310367]
+layout_mode = 2
+text = "SFX"
+
+[node name="sfx_volume_slider" type="HSlider" parent="GridContainer" unique_id=792814068]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+value = -12.0
+
+[node name="Label5" type="Label" parent="GridContainer" unique_id=1357143222]
+layout_mode = 2
+text = "Ambient"
+
+[node name="ambient_volume_slider" type="HSlider" parent="GridContainer" unique_id=1587696643]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+value = -12.0
+
+[node name="Label4" type="Label" parent="GridContainer" unique_id=1899888672]
+layout_mode = 2
+text = "Dialogue"
+
+[node name="voice_volume_slider" type="HSlider" parent="GridContainer" unique_id=1456607671]
+unique_name_in_owner = true
+layout_mode = 2
+min_value = -30.0
+max_value = 0.0
+value = -12.0

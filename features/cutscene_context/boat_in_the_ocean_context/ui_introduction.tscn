@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://durg8888lflbn"]
+
+[ext_resource type="Script" uid="uid://cw0dq3lufxrqv" path="res://features/cutscene_context/boat_in_the_ocean_context/ui_introduction.gd" id="1_icdp6"]
+
+[node name="ui_introduction" type="Control" unique_id=1220769579]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_icdp6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2095806911]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.066987254, 0.069084704, 0.062790476, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=418358624]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer" unique_id=975683636]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer" unique_id=720224235]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer" unique_id=2067716270]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=423720784]
+custom_minimum_size = Vector2(800, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"dialogue_label"
+text = "You are a new junior employee aboard the cruise ship S.S. Bliss. Just as you are getting settled, an announcement crackles over the ship's intercom: 
+
+\"a passenger is reported missing. All guests report to their rooms immediately.\""
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1338618082]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer" unique_id=1406725475]
+layout_mode = 2
+
+[node name="continue_button" type="Button" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/MarginContainer" unique_id=1750902021]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"FlatButton"
+text = "Continue"

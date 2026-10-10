@@ -2,70 +2,30 @@
 
 [ext_resource type="Script" uid="uid://bhbx8mqog8car" path="res://features/main_menu_context/menu_context.gd" id="1_00cx8"]
 [ext_resource type="PackedScene" uid="uid://dcf7utaep4s1x" path="res://features/main_menu_context/module_settings_menu/ui_settings_menu.tscn" id="2_83tv4"]
+[ext_resource type="PackedScene" uid="uid://cmd3y6f6q646u" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps_1_convert_materials.tscn" id="2_i2nfw"]
+[ext_resource type="Material" uid="uid://d4book7tyfwd" path="res://features/game_context/ps1_vertext_wobble_material_conversion/ps1_base_vertex_wobble_material.tres" id="3_fd72r"]
 [ext_resource type="PackedScene" uid="uid://h5mhah0j0jrk" path="res://features/main_menu_context/module_main_menu/ui_main_menu.tscn" id="3_fhn8x"]
-
-[sub_resource type="Animation" id="Animation_83tv4"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MeshInstance3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(0, 0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_fhn8x"]
-resource_name = "spin_cube"
-length = 3.0000000000000004
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../MeshInstance3D:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0.13962634), Vector3(0, 6.2831855, 0.13962634)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_8msaf"]
-_data = {
-&"RESET": SubResource("Animation_83tv4"),
-&"spin_cube": SubResource("Animation_fhn8x")
-}
-
-[sub_resource type="BoxMesh" id="BoxMesh_7jox1"]
-
-[sub_resource type="Environment" id="Environment_7jox1"]
+[ext_resource type="Environment" uid="uid://botyvsetr4ros" path="res://resources/cruise_ship_environment.tres" id="4_60t3n"]
+[ext_resource type="PackedScene" uid="uid://7olf1dnl35ls" path="res://features/cutscene_context/boat_in_the_ocean_context/buoey.tscn" id="5_4ci0r"]
+[ext_resource type="AudioStream" uid="uid://3r51wi1clpri" path="res://assets/theme.wav" id="8_fd72r"]
 
 [node name="MainMenuContext" type="Node3D" unique_id=219623861]
 script = ExtResource("1_00cx8")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=362063015]
-root_node = NodePath("../DirectionalLight3D")
-libraries/ = SubResource("AnimationLibrary_8msaf")
-autoplay = &"spin_cube"
-
-[node name="menu_camera" type="Camera3D" parent="." unique_id=1173944592]
+[node name="ps1_convert_materials" parent="." unique_id=751900272 instance=ExtResource("2_i2nfw")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.4008758)
+ps1_shader_material = ExtResource("3_fd72r")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=18723346]
-transform = Transform3D(0.99999994, 0, 0, 0, 0.99999994, 0, 0, 0, 1, 0, 0, 0)
-mesh = SubResource("BoxMesh_7jox1")
+[node name="menu_camera" type="Camera3D" parent="." unique_id=1173944592 groups=["player_camera"]]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 53.904217, 1.2686453, 3.754713)
 
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=620880928]
-environment = SubResource("Environment_7jox1")
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1065871017]
+environment = ExtResource("4_60t3n")
 
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1128286479]
+[node name="buoey" parent="." unique_id=7398299 instance=ExtResource("5_4ci0r")]
+unique_name_in_owner = true
+transform = Transform3D(-0.017178806, 0, 0.098513395, 0, 0.1, 0, -0.098513395, 0, -0.017178806, 52.82712, 0.55538356, 1.7796326)
 
 [node name="Control" type="Control" parent="." unique_id=390412941]
 layout_mode = 3
@@ -94,7 +54,8 @@ layout_mode = 2
 
 [node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=870796329]
 layout_mode = 2
-text = "Game Title"
+theme_type_variation = &"game_title_label"
+text = "Blood Cruise"
 
 [node name="ui_main_menu" parent="Control/MarginContainer/VBoxContainer" unique_id=1295658151 instance=ExtResource("3_fhn8x")]
 unique_name_in_owner = true
@@ -103,3 +64,9 @@ layout_mode = 2
 [node name="ui_settings_menu" parent="Control/MarginContainer/VBoxContainer" unique_id=520321447 instance=ExtResource("2_83tv4")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="menu_theme" type="AudioStreamPlayer" parent="." unique_id=353988296]
+unique_name_in_owner = true
+stream = ExtResource("8_fd72r")
+autoplay = true
+bus = &"Music"

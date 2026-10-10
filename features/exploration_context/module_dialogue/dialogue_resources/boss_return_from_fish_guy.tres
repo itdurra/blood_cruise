@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_locwk")
 character_names = Array[String](["Chief", "Brad", "Chief", "Brad", "Chief", "Chief", "Chief", "Chief"])
-dialogues = Array[String](["Brad, Brad Boileux, report for duty.", "Hello, I'm here and reporting for duty.", "Tell me Mr. Critchaw is alive and well.", "Well he's alive, but not well, terribly sick.", "I asked for his status not his life story sailor.", "I need you out there again, this time the schmuck in question is…", "Beaurogard Jackson, tell me he's safe in his room 402", "on the double, no on the triple, room 402."])
+dialogues = Array[String](["Brad, Brad Boileux, report for duty.", "Hello, I'm here and reporting for duty.", "Tell me Mr. Critchaw is alive and well.", "Well he's alive, but not well, terribly sick.", "I asked for his status not his life story sailor.", "I need you out there again, this time the schmuck in question is…", "Delilah Montague, tell me she's safe in room 402", "on the double, no on the triple, room 402."])
 voice_lines = Array[AudioStreamOggVorbis]([ExtResource("2_j8x60"), ExtResource("3_ougfx"), ExtResource("2_j8x60"), ExtResource("3_ougfx"), ExtResource("2_j8x60")])
 anim_names = Array[String](["", "", "", "", "", "", "", ""])
 metadata/_custom_type_script = "uid://6fyvtqw5a2c6"

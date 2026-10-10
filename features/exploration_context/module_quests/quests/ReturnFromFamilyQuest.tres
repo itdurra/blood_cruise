@@ -4,5 +4,5 @@
 
 [resource]
 script = ExtResource("1_xp4eg")
-quest_description = "Go to room 407"
+quest_description = "Quit the game"
 metadata/_custom_type_script = "uid://dfyb787cg6trh"

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://7olf1dnl35ls"]
+
+[ext_resource type="PackedScene" uid="uid://bkhany7e20mcg" path="res://features/cutscene_context/boat_in_the_ocean_context/blender/buoey.glb" id="1_k8nlo"]
+[ext_resource type="Script" uid="uid://b61q1pbkiui8a" path="res://features/cutscene_context/boat_in_the_ocean_context/blender/buoey.gd" id="2_43ain"]
+
+[node name="buoey" unique_id=7398299 instance=ExtResource("1_k8nlo")]
+script = ExtResource("2_43ain")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="." index="1" unique_id=1947509166]
+transform = Transform3D(1, 0, -1.192093e-08, 0, 1, 0, 1.192093e-08, 0, 1, 0, 5.0790195, 0)
+light_color = Color(0.79607844, 0.7137255, 0.7372549, 1)
+light_energy = 1.85
+omni_range = 31.205

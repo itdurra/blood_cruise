@@ -24,7 +24,7 @@ script = ExtResource("1_limvx")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2061716092]
 shape = SubResource("CapsuleShape3D_7jox1")
 
-[node name="player_camera" type="Camera3D" parent="." unique_id=1141854583]
+[node name="player_camera" type="Camera3D" parent="." unique_id=1141854583 groups=["player_camera"]]
 unique_name_in_owner = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.55108005, 0)
 

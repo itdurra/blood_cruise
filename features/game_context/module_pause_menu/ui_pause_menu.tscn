@@ -1,9 +1,30 @@
 [gd_scene format=3 uid="uid://b0u5wp5smukkl"]
 
+[ext_resource type="Script" uid="uid://bj47lb5tu80oh" path="res://features/game_context/module_pause_menu/ui_pause_menu.gd" id="1_2xqpq"]
+[ext_resource type="PackedScene" uid="uid://c371svh0vhrpw" path="res://features/game_context/module_pause_menu/module_settings_menu/ui_settings_menu.tscn" id="1_pcmkg"]
+
 [node name="UiPauseMenu" type="Control" unique_id=873798857]
+process_mode = 2
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+script = ExtResource("1_2xqpq")
+
+[node name="ui_settings_menu" parent="." unique_id=520321447 instance=ExtResource("1_pcmkg")]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -123.0
+offset_top = -141.0
+offset_right = 123.0
+offset_bottom = 141.0
 grow_horizontal = 2
 grow_vertical = 2

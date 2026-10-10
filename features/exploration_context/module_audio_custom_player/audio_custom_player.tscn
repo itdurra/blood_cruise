@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://d1db71wqfgeur"]
+
+[ext_resource type="Script" uid="uid://b5u8wv0vwm7wq" path="res://features/exploration_context/module_audio_custom_player/audio_custom_player.gd" id="1_yobiu"]
+[ext_resource type="AudioStream" uid="uid://b64qtd6x6b1gv" path="res://assets/blank_audio_pause.ogg" id="2_o36n7"]
+[ext_resource type="AudioStream" uid="uid://biase4hv68jah" path="res://assets/mood_1.ogg" id="3_mu5jk"]
+[ext_resource type="AudioStream" uid="uid://ts24fdrtcjs3" path="res://assets/ambient.ogg" id="4_t57c6"]
+[ext_resource type="AudioStream" uid="uid://dmqtqydo0o48e" path="res://assets/mood_2.ogg" id="5_d6ej6"]
+[ext_resource type="AudioStream" uid="uid://ol0sgsovv27k" path="res://assets/mood_3.ogg" id="5_o36n7"]
+[ext_resource type="AudioStream" uid="uid://p554giaob4l0" path="res://assets/mood_4.ogg" id="6_1vwfj"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_7jox1"]
+shuffle = true
+stream_count = 8
+stream_0 = ExtResource("3_mu5jk")
+stream_1 = ExtResource("2_o36n7")
+stream_2 = ExtResource("5_d6ej6")
+stream_3 = ExtResource("2_o36n7")
+stream_4 = ExtResource("5_o36n7")
+stream_5 = ExtResource("2_o36n7")
+stream_6 = ExtResource("6_1vwfj")
+stream_7 = ExtResource("2_o36n7")
+
+[node name="audio_custom_player" type="Node" unique_id=595931109 node_paths=PackedStringArray("playlist")]
+script = ExtResource("1_yobiu")
+playlist = [NodePath("mood_1"), NodePath("mood_2"), NodePath("mood_3"), NodePath("mood_4")]
+
+[node name="exploration_ambient" type="AudioStreamPlayer" parent="." unique_id=256079399]
+unique_name_in_owner = true
+stream = ExtResource("4_t57c6")
+bus = &"Ambient"
+
+[node name="shuffle_playlist" type="AudioStreamPlayer" parent="." unique_id=1920032683]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamPlaylist_7jox1")
+bus = &"Music"
+
+[node name="mood_1" type="AudioStreamPlayer" parent="." unique_id=166065745]
+unique_name_in_owner = true
+stream = ExtResource("3_mu5jk")
+volume_db = -10.099
+bus = &"Music"
+
+[node name="mood_2" type="AudioStreamPlayer" parent="." unique_id=1479343195]
+unique_name_in_owner = true
+stream = ExtResource("5_d6ej6")
+volume_db = -10.099
+bus = &"Music"
+
+[node name="mood_3" type="AudioStreamPlayer" parent="." unique_id=428997951]
+unique_name_in_owner = true
+stream = ExtResource("5_o36n7")
+volume_db = -10.099
+bus = &"Music"
+
+[node name="mood_4" type="AudioStreamPlayer" parent="." unique_id=670633695]
+unique_name_in_owner = true
+stream = ExtResource("6_1vwfj")
+volume_db = -10.099
+bus = &"Music"

@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://c60ay2kvx361n" path="res://features/exploration_context/NPCs/frat_guy.tscn" id="6_i87lw"]
 [ext_resource type="PackedScene" uid="uid://b4rcmg0h7xad6" path="res://features/exploration_context/module_dialogue/ui_dialogue.tscn" id="6_ijygs"]
 [ext_resource type="PackedScene" uid="uid://g3hswjufwa84" path="res://features/exploration_context/blender/door.glb" id="6_scb8x"]
+[ext_resource type="PackedScene" uid="uid://vi51ch6bor7" path="res://features/exploration_context/NPCs/clown_guy.tscn" id="7_2j8wc"]
 [ext_resource type="Environment" uid="uid://botyvsetr4ros" path="res://resources/cruise_ship_environment.tres" id="8_8vwsg"]
 [ext_resource type="PackedScene" uid="uid://ral8r487aaiy" path="res://features/exploration_context/module_quests/ui_quest.tscn" id="8_scb8x"]
 [ext_resource type="PackedScene" uid="uid://cvoemru8x2el7" path="res://features/exploration_context/middle_ware_interactable_dialogue_with_quest/interactable_dialogue_with_quest.tscn" id="9_scb8x"]
@@ -19,6 +20,7 @@
 [ext_resource type="Resource" uid="uid://ds2gmwfur3g1u" path="res://features/exploration_context/module_quests/quests/BreakRoomQuest.tres" id="11_p4kl2"]
 [ext_resource type="Resource" uid="uid://dggkeo2hdp4cv" path="res://features/exploration_context/module_quests/quests/FamilyQuest.tres" id="12_0mk7v"]
 [ext_resource type="Resource" uid="uid://nwsb4fixxni0" path="res://features/exploration_context/module_dialogue/dialogue_resources/family.tres" id="12_p4kl2"]
+[ext_resource type="Resource" uid="uid://bk721e6p634ue" path="res://features/exploration_context/module_dialogue/dialogue_resources/clown.tres" id="13_i87lw"]
 [ext_resource type="Resource" uid="uid://c4v517bnnrvth" path="res://features/exploration_context/module_dialogue/dialogue_resources/boss_return_from_fish_guy.tres" id="15_pttga"]
 [ext_resource type="Resource" uid="uid://dqwu1pn4hgg42" path="res://features/exploration_context/module_quests/quests/ReturnFromFishGuyQuest.tres" id="16_m33fs"]
 [ext_resource type="Resource" uid="uid://djfv0ntmwjp2o" path="res://features/exploration_context/module_dialogue/dialogue_resources/boss_return_from_family.tres" id="19_l0k3c"]
@@ -33,8 +35,12 @@
 [ext_resource type="Resource" uid="uid://c4nnpmfra6tm3" path="res://features/exploration_context/module_quests/quests/ReturnFromPartyQuest.tres" id="28_oekra"]
 [ext_resource type="Resource" uid="uid://drt8yyvlpln6" path="res://features/exploration_context/module_dialogue/dialogue_resources/killer.tres" id="29_qnndq"]
 [ext_resource type="Resource" uid="uid://bc131edryeilx" path="res://features/exploration_context/module_quests/quests/KillerQuest.tres" id="30_gp6ft"]
+[ext_resource type="PackedScene" uid="uid://d1db71wqfgeur" path="res://features/exploration_context/module_audio_custom_player/audio_custom_player.tscn" id="36_frual"]
 
 [sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_7jox1"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7jox1"]
+size = Vector3(2.6292725, 1.8319092, 1)
 
 [sub_resource type="Animation" id="Animation_20uy2"]
 length = 0.001
@@ -74,10 +80,39 @@ tracks/2/keys = {
 "update": 0,
 "values": [Vector3(0, 3.1415925, 0)]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("characters/clown_guy:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 1.4998991, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qnndq"]
+resource_name = "turn_clown"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("characters/clown_guy:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 1.4998991, 0), Vector3(0, -1.6423548, 0)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_37h0r"]
 _data = {
-&"RESET": SubResource("Animation_20uy2")
+&"RESET": SubResource("Animation_20uy2"),
+&"turn_clown": SubResource("Animation_qnndq")
 }
 
 [sub_resource type="Animation" id="Animation_pttga"]
@@ -404,6 +439,12 @@ light_energy = 5.821
 light_specular = 0.0
 omni_range = 2.54
 
+[node name="radio_light" type="SpotLight3D" parent="lights" unique_id=1921660052]
+transform = Transform3D(-0.9927437, 0, 0.12024996, 0, 1, 0, -0.12024996, 0, -0.9927437, 6.636851, -0.3720101, -3.5286155)
+light_color = Color(0.654902, 0.6509804, 0.5058824, 1)
+light_energy = 1.687
+spot_range = 0.394
+
 [node name="characters" type="Node3D" parent="." unique_id=22501275]
 
 [node name="fish_guy" parent="characters" unique_id=1326024616 instance=ExtResource("4_m33fs")]
@@ -413,56 +454,75 @@ transform = Transform3D(-1.1676242, 0, -0.276864, 0, 1.2, 0, 0.276864, 0, -1.167
 transform = Transform3D(0.9918392, 0, 0.12749562, 0, 1, 0, -0.12749562, 0, 0.9918392, -4.893113, 0.16978744, -0.9226991)
 
 [node name="frat_girl" parent="characters" unique_id=2138803371 instance=ExtResource("5_3jkh6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6230239, 0, -2.121141)
 
 [node name="frat_guy" parent="characters" unique_id=721444389 instance=ExtResource("6_i87lw")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2.121141)
+
+[node name="clown_guy" parent="characters" unique_id=718560479 instance=ExtResource("7_2j8wc")]
+transform = Transform3D(0.077921584, 0, 1.0972366, 0, 1.1, 0, -1.0972366, 0, 0.077921584, 11.16821, 0.11164409, -4.9077396)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="characters/clown_guy" unique_id=1457980595]
+transform = Transform3D(0.8308446, 0.054187883, -0.034721196, -0.054187827, 0.3464584, -0.7559595, -0.034721278, 0.7559596, 0.3489473, -0.044388294, 0.97011805, 0.25540257)
+light_color = Color(0.4392157, 0.33333334, 0.36078432, 1)
+light_energy = 6.346
+spot_range = 1.02
+spot_angle = 52.18
 
 [node name="player" parent="." unique_id=1141854583 instance=ExtResource("3_r63nq")]
 unique_name_in_owner = true
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.785308, 1.8529409, 1.5010471)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.26913, 1.2098064, 7.4404755)
 
 [node name="cruise_ship" parent="." unique_id=390655904 instance=ExtResource("2_hmso0")]
+
+[node name="collision" type="Node3D" parent="." unique_id=1879605298]
+
+[node name="floor" type="StaticBody3D" parent="collision" unique_id=694602179]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision/floor" unique_id=1520238581]
+shape = SubResource("WorldBoundaryShape3D_7jox1")
+
+[node name="break_room_collision" type="StaticBody3D" parent="collision" unique_id=2029330741]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.393036, 0.124601334, 4.0837774)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="collision/break_room_collision" unique_id=1541752315]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.20928955, 1.2578878, -0.8981893)
+shape = SubResource("BoxShape3D_7jox1")
 
 [node name="door" parent="." unique_id=654221504 instance=ExtResource("6_scb8x")]
 
 [node name="door_001" parent="door" index="0" unique_id=1007672796]
 transform = Transform3D(-1.0438598, 0, 6.039832e-08, 0, 1.3294619, 0, -1.5761846e-07, 0, -0.4, -3.9030995, 1.3157427, 0.049513612)
 
-[node name="StaticBody3D" type="StaticBody3D" parent="." unique_id=694602179]
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D" unique_id=1520238581]
-shape = SubResource("WorldBoundaryShape3D_7jox1")
-
 [node name="ui_dialogue" parent="." unique_id=1162346712 instance=ExtResource("6_ijygs")]
 unique_name_in_owner = true
 
 [node name="ui_quest" parent="." unique_id=398989595 instance=ExtResource("8_scb8x")]
 unique_name_in_owner = true
-visible = false
 
 [node name="anim_player" type="AnimationPlayer" parent="." unique_id=2092164824]
 unique_name_in_owner = true
 libraries/ = SubResource("AnimationLibrary_37h0r")
 libraries/door_opening = SubResource("AnimationLibrary_20uy2")
 
+[node name="random_interaction_triggers" type="Node3D" parent="." unique_id=1332642601]
+unique_name_in_owner = true
+
+[node name="clown_guy" parent="random_interaction_triggers" unique_id=565051135 instance=ExtResource("9_scb8x")]
+unique_name_in_owner = true
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.183302, 0.47595322, -4.865177)
+dialogue_res = ExtResource("13_i87lw")
+enable_from_start = true
+
 [node name="quest_and_dialogue_triggers" type="Node3D" parent="." unique_id=475438820]
 unique_name_in_owner = true
 
-[node name="starting_quest" parent="quest_and_dialogue_triggers" unique_id=565051135 instance=ExtResource("9_scb8x")]
+[node name="starting_quest" parent="quest_and_dialogue_triggers" unique_id=484468265 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -18.500937, 0.014255285, 13.151718)
 quest_res = ExtResource("10_jj7he")
 
-[node name="family_quest" parent="quest_and_dialogue_triggers" unique_id=2026543699 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.772175, 0.65252674, 0.2157886)
-dialogue_res = ExtResource("12_p4kl2")
-quest_res = ExtResource("12_0mk7v")
-
-[node name="return_from_family_quest" parent="quest_and_dialogue_triggers" unique_id=1549393235 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.494867, 0.3313247, 3.5542006)
-dialogue_res = ExtResource("19_l0k3c")
-quest_res = ExtResource("20_3jkh6")
-
 [node name="break_room_quest" parent="quest_and_dialogue_triggers" unique_id=51747122 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.393036, 0.16466433, 3.7260375)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55688, -0.2822693, 4.0837774)
 dialogue_res = ExtResource("11_5rl2h")
 quest_res = ExtResource("11_p4kl2")
 
@@ -472,33 +532,49 @@ dialogue_res = ExtResource("3_6pqgb")
 quest_res = ExtResource("11_1k85v")
 
 [node name="return_from_fish_guy_quest" parent="quest_and_dialogue_triggers" unique_id=1116952539 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.428465, 0.2528109, 3.5841336)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55688, -0.2822693, 4.0837774)
 dialogue_res = ExtResource("15_pttga")
 quest_res = ExtResource("16_m33fs")
 
-[node name="kid_quest" parent="quest_and_dialogue_triggers" unique_id=1952106418 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.518343, 0.14473933, 8.82659)
+[node name="family_quest" parent="quest_and_dialogue_triggers" unique_id=2026543699 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.772175, 0.65252674, 0.2157886)
+dialogue_res = ExtResource("12_p4kl2")
+quest_res = ExtResource("12_0mk7v")
+
+[node name="return_from_family_quest" parent="quest_and_dialogue_triggers" unique_id=1549393235 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55688, -0.2822693, 4.0837774)
+dialogue_res = ExtResource("19_l0k3c")
+quest_res = ExtResource("20_3jkh6")
+
+[node name="TODO_more_quests" type="Node3D" parent="." unique_id=371465672]
+
+[node name="kid_quest" parent="TODO_more_quests" unique_id=1952106418 instance=ExtResource("9_scb8x")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.458383, 0.14473933, -1.5608186)
 dialogue_res = ExtResource("21_i87lw")
 quest_res = ExtResource("22_2j8wc")
 
-[node name="return_from_kid_quest" parent="quest_and_dialogue_triggers" unique_id=543837416 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.239355, 0.30563298, 4.0511236)
+[node name="return_from_kid_quest" parent="TODO_more_quests" unique_id=543837416 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55688, -0.2822693, 4.0837774)
 dialogue_res = ExtResource("23_frual")
 quest_res = ExtResource("24_nsmfo")
 
-[node name="party_quest" parent="quest_and_dialogue_triggers" unique_id=1308817822 instance=ExtResource("9_scb8x")]
+[node name="party_quest" parent="TODO_more_quests" unique_id=1308817822 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.714316, 0.0071276426, -5.8444037)
 dialogue_res = ExtResource("25_ngw8m")
 quest_res = ExtResource("26_e6wtv")
 
-[node name="return_from_party_quest" parent="quest_and_dialogue_triggers" unique_id=128443579 instance=ExtResource("9_scb8x")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.37707, 0.4203856, 4.2170887)
+[node name="return_from_party_quest" parent="TODO_more_quests" unique_id=128443579 instance=ExtResource("9_scb8x")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.55688, -0.2822693, 4.0837774)
 dialogue_res = ExtResource("27_1bcul")
 quest_res = ExtResource("28_oekra")
 
-[node name="escape_the_killer_quest" parent="quest_and_dialogue_triggers" unique_id=2053413757 instance=ExtResource("9_scb8x")]
+[node name="escape_the_killer_quest" parent="TODO_more_quests" unique_id=2053413757 instance=ExtResource("9_scb8x")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.001186, 0.02851057, -4.437443)
 dialogue_res = ExtResource("29_qnndq")
 quest_res = ExtResource("30_gp6ft")
 
+[node name="audio_custom_player" parent="." unique_id=595931109 instance=ExtResource("36_frual")]
+unique_name_in_owner = true
+
 [editable path="door"]
+[editable path="quest_and_dialogue_triggers/fish_guy_quest"]
